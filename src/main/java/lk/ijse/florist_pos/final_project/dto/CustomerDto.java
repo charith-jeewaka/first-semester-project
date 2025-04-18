@@ -9,8 +9,8 @@ public class CustomerDto {
     private String customerAddress;
 
     public CustomerDto() {
-
     }
+
     public CustomerDto(int customerId, String customerName, String mobileNumber, String email,
                        String registeredTime, String customerAddress) {
         this.customerId = customerId;

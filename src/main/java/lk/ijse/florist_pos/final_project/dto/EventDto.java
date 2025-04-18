@@ -1,17 +1,17 @@
 package lk.ijse.florist_pos.final_project.dto;
 
-public class Event {
+public class EventDto {
     private int event_id;
     private String eventType;
     private String eventLocation;
     private String eventDate;
     private String eventPlacedDate;
 
-    public Event(){
+    public EventDto(){
     }
 
-    public Event(int event_id, String eventType, String eventLocation, String eventDate,
-                 String eventPlacedDate) {
+    public EventDto(int event_id, String eventType, String eventLocation, String eventDate,
+                    String eventPlacedDate) {
         this.event_id = event_id;
         this.eventType = eventType;
         this.eventLocation = eventLocation;
@@ -56,7 +56,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return Event.class.getSimpleName() + " [event_id=" + event_id + ", eventType=" + eventType + ", eventLocation="
+        return EventDto.class.getSimpleName() + " [event_id=" + event_id + ", eventType=" + eventType + ", eventLocation="
                 + eventLocation + ", eventDate=" + eventDate + ", eventPlacedDate=" + eventPlacedDate+ "]";
 
     }
