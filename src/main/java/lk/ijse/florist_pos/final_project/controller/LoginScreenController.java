@@ -5,18 +5,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.florist_pos.final_project.DBConnect.DBConnection;
+import lk.ijse.florist_pos.final_project.model.SystemUserModel;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+
 
 public class LoginScreenController {
     @FXML
@@ -29,7 +33,10 @@ public class LoginScreenController {
     public Button btnLoggin;
     @FXML
     public Label lblIncorrectMassage;
+    @FXML
     public Button btnForgetPassword;
+    @FXML
+    public BorderPane AncLoginContainer;
 
     public void btnCancelOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -93,6 +100,23 @@ public class LoginScreenController {
     }
 
     public void forgetPasswordOnAction(ActionEvent actionEvent) {
-        
+        navigateTo("/View/ForgetPassword.fxml");
+    }
+
+
+    private  void navigateTo(String path) {
+        try {
+            AncLoginContainer.getChildren().clear();
+
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource(path));
+
+            anchorPane.prefWidthProperty().bind(AncLoginContainer.widthProperty());
+            anchorPane.prefHeightProperty().bind(AncLoginContainer.heightProperty());
+
+            AncLoginContainer.getChildren().add(anchorPane);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Page not found..!").show();
+            e.printStackTrace();
+        }
     }
 }
