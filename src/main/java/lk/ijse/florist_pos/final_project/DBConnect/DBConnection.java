@@ -5,23 +5,24 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static DBConnection dBConnection;
+    private static DBConnection dbConnection;
+    private final Connection connection;
 
-    private Connection connection;
+    private final String url = "jdbc:mysql://localhost:3306/florist";
+    private final String user = "charith123";
+    private final String password = "ijsedb";
 
-    private DBConnection() throws ClassNotFoundException, SQLException{
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/FloristPOS", "charith123", "ijsedb");
+    private DBConnection() throws SQLException {
+       connection = DriverManager.getConnection(url,user,password);
     }
 
-    public static DBConnection getInstance() throws ClassNotFoundException, SQLException{
-        if(dBConnection == null){
-            dBConnection = new DBConnection();
-        }
-        return dBConnection;
-    }
+    public static DBConnection getInstance() throws SQLException {
+        return dbConnection == null ? dbConnection = new DBConnection () : dbConnection;
 
+    }
     public Connection getConnection(){
         return connection;
     }
+
+
 }

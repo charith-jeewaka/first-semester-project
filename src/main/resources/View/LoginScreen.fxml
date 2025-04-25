@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.LoginScreenController">
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="297.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="16.0" layoutY="101.0" prefHeight="25.0" prefWidth="249.0" AnchorPane.leftAnchor="16.0">
+               <children>
+                  <Label prefHeight="20.0" prefWidth="89.0" text="USERNAME" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="159.0" promptText="USERNAME" style="-fx-background-color: null; -fx-border-width: 0 0 1px 0; -fx-border-color: #1abc9c;" />
+               </children>
+            </HBox>
+            <Label layoutX="66.0" layoutY="21.0" text="SECURE LOGIN" textFill="#4d4141">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox layoutX="15.0" layoutY="166.0" prefHeight="28.0" prefWidth="250.0" AnchorPane.leftAnchor="15.0">
+               <children>
+                  <Label prefHeight="20.0" prefWidth="89.0" text="PASSWORD" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="159.0" promptText="PASSWORD" style="-fx-background-color: null; -fx-border-color: #1abc9c; -fx-border-width: 0 0 1px 0;" />
+               </children>
+            </HBox>
+            <Button fx:id="btnCancel" layoutX="41.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #EA2027;" text="CANCEL" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnLoggin" layoutX="41.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnLogginOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #009432;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblIncorrectMassage" alignment="CENTER" layoutX="13.0" layoutY="63.0" prefHeight="17.0" prefWidth="267.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Button fx:id="btnForgetPassword" layoutX="94.0" layoutY="301.0" mnemonicParsing="false" onAction="#forgetPasswordOnAction" style="-fx-background-color: null;" text="Forget Password?" textFill="#0022ff">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #dfe4ea;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="40.0" layoutY="55.0" prefHeight="53.0" prefWidth="147.0" text="FLORIST">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.542654028436019" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.18412524461746216" green="0.5526315569877625" blue="0.17141813039779663" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.040176667273044586" green="0.17000000178813934" blue="0.0357000008225441" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="77.0" layoutY="108.0" prefHeight="53.0" prefWidth="74.0" text="POS">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.542654028436019" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.18412524461746216" green="0.5526315569877625" blue="0.17141813039779663" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.040176667273044586" green="0.17000000178813934" blue="0.0357000008225441" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Line endX="100.0" layoutX="114.0" layoutY="108.0" startX="-100.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="378.0" prefHeight="17.0" prefWidth="228.0" text="IJSE private limited AllRights Reserved @" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Text layoutX="35.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLEASE LOGIN TO CONTINUE" textAlignment="CENTER" wrappingWidth="157.142578125">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/imgBig.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="20.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/imgSmall.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <Bloom threshold="1.0" />
+         </effect>
+      </AnchorPane>
+   </left>
+</BorderPane>
