@@ -57,7 +57,6 @@ public class LoginScreenController {
 
 
     public void clearText() {
-        txtUserName.clear();
         txtPassword.clear();
     }
 

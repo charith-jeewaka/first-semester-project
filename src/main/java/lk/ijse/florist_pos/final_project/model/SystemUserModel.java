@@ -7,6 +7,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lk.ijse.florist_pos.final_project.DBConnect.DBConnection;
+import lk.ijse.florist_pos.final_project.controller.DashboardController;
 import lk.ijse.florist_pos.final_project.controller.LoginScreenController;
 
 import java.sql.Connection;
@@ -32,6 +33,8 @@ public class SystemUserModel {
                 label.setText("Login successful!");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Dashboard.fxml"));
                 Parent root = loader.load();
+                DashboardController dashboardController = loader.getController();
+                dashboardController.lblCurrentUser.setText(resultSet.getString("user_name"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.show();
