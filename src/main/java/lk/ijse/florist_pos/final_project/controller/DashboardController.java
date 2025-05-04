@@ -15,8 +15,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class DashboardController  {
+public class DashboardController implements Initializable {
     @FXML
     public Button btnLogout;
     @FXML
@@ -33,6 +35,11 @@ public class DashboardController  {
     public AnchorPane ancDashboardContent;
     @FXML
     public Button btnInventory;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        navigateTo("/View/HomePage.fxml");
+    }
 
     public void logoutonAction(ActionEvent actionEvent) throws IOException {
         // Load the login screen
