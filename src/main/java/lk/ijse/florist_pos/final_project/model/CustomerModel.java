@@ -24,7 +24,27 @@ public class CustomerModel {
         return tableCharacter + "001";
     }
 
+    public ArrayList<CustomerDto> getAllCustomer() throws SQLException {
 
+        ResultSet resultSet = CrudUtil.execute("select * from customer");
+
+        ArrayList<CustomerDto> customerDTOArrayList = new ArrayList<>();
+        while (resultSet.next()) {
+            CustomerDto customerDTO = new CustomerDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+            customerDTOArrayList.add(customerDTO);
+        }
+        System.out.println("hello");
+
+        return customerDTOArrayList;
+
+    }
 
     public boolean saveCustomer(CustomerDto customerDTO) throws SQLException {
 
@@ -39,24 +59,6 @@ public class CustomerModel {
         );
     }
 
-    public ArrayList<CustomerDto> getAllCustomer() throws SQLException {
-//        Connection connection = DBConnection.getInstance().getConnection();
-//        PreparedStatement pst = connection.prepareStatement("select * from customer");
-        ResultSet resultSet = CrudUtil.execute("select * from customer");
 
-        ArrayList<CustomerDto> customerDTOArrayList = new ArrayList<>();
-        while (resultSet.next()) {
-            CustomerDto customerDTO = new CustomerDto(
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getString(5),
-                    resultSet.getString(6)
-            );
-            customerDTOArrayList.add(customerDTO);
-        }
 
-        return customerDTOArrayList;
-    }
 }
