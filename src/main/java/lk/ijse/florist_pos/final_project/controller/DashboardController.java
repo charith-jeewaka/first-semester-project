@@ -34,7 +34,13 @@ public class DashboardController implements Initializable {
     @FXML
     public AnchorPane ancDashboardContent;
     @FXML
-    public Button btnInventory;
+    public Button btnItemWaste;
+    @FXML
+    public Button btnOrders;
+    @FXML
+    public Button btnFlowers;
+    @FXML
+    public Button btnPlants;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,10 +71,21 @@ public class DashboardController implements Initializable {
         navigateTo("/View/CustomerPage.fxml");
     }
 
-    public void orderPageOnAction(ActionEvent actionEvent) {
+    public void ordersOnAction(ActionEvent actionEvent) {
         navigateTo("/View/OrderPage.fxml");
     }
 
+    public void flowersOnAction(ActionEvent actionEvent) {
+        navigateTo("/View/FlowerPage.fxml");
+    }
+
+    public void plantsOnAction(ActionEvent actionEvent) {
+        navigateTo("/View/PlantPage.fxml");
+    }
+
+    public void itemWasteOnAction(ActionEvent actionEvent) {
+        navigateTo("/View/ItemWastePage.fxml");
+    }
 
 
     private void navigateTo(String path) {
@@ -87,7 +104,6 @@ public class DashboardController implements Initializable {
         }
     }
 
-    public void inventoryPageOnAction(ActionEvent actionEvent) {
-        navigateTo("/View/InventoryPage.fxml");
-    }
+
+
 }

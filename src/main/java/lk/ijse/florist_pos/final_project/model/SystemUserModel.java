@@ -31,6 +31,7 @@ public class SystemUserModel {
             if (resultSet.next()) {
                 // Login success
                 label.setText("Login successful!");
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Dashboard.fxml"));
                 Parent root = loader.load();
                 DashboardController dashboardController = loader.getController();

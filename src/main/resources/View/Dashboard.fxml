@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,115 +15,198 @@
 
 <AnchorPane fx:id="ancDashboardContainer" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.DashboardController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="53.0" layoutY="75.0" prefHeight="500.0" prefWidth="175.0" style="-fx-background-color: #4b4b4b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="135.0" fitWidth="121.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../images/user.png" />
-               </image>
-               <effect>
-                  <Glow />
-               </effect>
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </ImageView>
-            <Label text="WELCOME" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblCurrentUser" text="CHARITH" textFill="WHITE" />
-            <Line endX="38.5" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="173.0" style="-fx-background-color: #4b4b4b;" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="btnHome" mnemonicParsing="false" onAction="#homePageOnAction" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #3d3d3d;" text="HOME" textFill="WHITE">
+                  <ImageView fitHeight="135.0" fitWidth="121.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/user.png" />
+                     </image>
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label text="WELCOME" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
-                     <HBox.margin>
+                  </Label>
+                  <Label fx:id="lblCurrentUser" text="CHARITH" textFill="WHITE" />
+                  <Line endX="38.5" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <VBox.margin>
                         <Insets top="5.0" />
-                     </HBox.margin>
-                  </Button>
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#homePageOnAction" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #3d3d3d;" text="HOME" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button fx:id="btnCustomer" mnemonicParsing="false" onAction="#customerPageOnAction" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #3d3d3d;" text="CUSTOMER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button fx:id="btnPlants" mnemonicParsing="false" onAction="#plantsOnAction" prefHeight="25.0" prefWidth="186.0" style="-fx-background-color: #3d3d3d;" text="PLANTS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button fx:id="btnFlowers" mnemonicParsing="false" onAction="#flowersOnAction" prefHeight="25.0" prefWidth="222.0" style="-fx-background-color: #3d3d3d;" text="FLOWERS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button fx:id="btnOrders" mnemonicParsing="false" onAction="#ordersOnAction" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #3d3d3d;" text="ORDERS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button fx:id="btnItemWaste" mnemonicParsing="false" onAction="#itemWasteOnAction" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="ITEM WASTE" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <graphic>
+                  
+                                          <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                                 <children>
+                                    <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutonAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: RED;" text="LOG OUT" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-               <children>
-                  <Button fx:id="btnCustomer" mnemonicParsing="false" onAction="#customerPageOnAction" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #3d3d3d;" text="CUSTOMER" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-               <children>
-                  <Button fx:id="btnInventory" mnemonicParsing="false" onAction="#inventoryPageOnAction" prefHeight="25.0" prefWidth="186.0" style="-fx-background-color: #3d3d3d;" text="INVENTORY" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-               <children>
-                  <Button fx:id="btnOrder" mnemonicParsing="false" onAction="#orderPageOnAction" prefHeight="25.0" prefWidth="222.0" style="-fx-background-color: #3d3d3d;" text="ORDERS" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #3d3d3d;" text="EVENTS" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-               <children>
-                  <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutonAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: RED;" text="LOG OUT" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+            </VBox>
+         </content>
+      </ScrollPane>
+
       <AnchorPane fx:id="ancDashboardContent" layoutX="169.0" layoutY="23.0" prefHeight="477.0" prefWidth="525.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
    <effect>
