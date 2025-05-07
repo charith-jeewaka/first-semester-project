@@ -47,17 +47,48 @@ public class CustomerModel {
     }
 
     public boolean saveCustomer(CustomerDto customerDTO) throws SQLException {
-
         return CrudUtil.execute(
-                "insert into customer values (?,?,?,?,?,?)",
+                "insert into customer (customer_id, name, phone_number, email, address) values (?,?,?,?,?)",
                 customerDTO.getCustomerId(),
                 customerDTO.getCustomerName(),
                 customerDTO.getMobileNumber(),
                 customerDTO.getEmail(),
-                customerDTO.getCustomerAddress(),
-                customerDTO.getRegisteredTime()
+                customerDTO.getCustomerAddress()
         );
     }
+
+    public void deleteCustomer(String customerId) throws SQLException {
+        CrudUtil.execute("delete from customer where customer_id=?", customerId);
+    }
+
+    public void updateCustomer(CustomerDto customerDTO) throws SQLException {
+        CrudUtil.execute(
+                "UPDATE customer SET name = ?, phone_number = ?, email = ?, address = ? WHERE customer_id = ?",
+                customerDTO.getCustomerName(),
+                customerDTO.getMobileNumber(),
+                customerDTO.getEmail(),
+                customerDTO.getCustomerAddress(),
+                customerDTO.getCustomerId()
+        );
+    }
+
+    public CustomerDto searchCustomer(String number) throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM customer WHERE phone_number = ?;", number);
+
+        if (resultSet.next()) { // Check if a row exists
+            return new CustomerDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+        } else {
+            return null; // No matching customer
+        }
+    }
+
 
 
 

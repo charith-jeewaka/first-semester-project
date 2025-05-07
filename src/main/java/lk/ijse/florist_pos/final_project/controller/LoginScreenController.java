@@ -47,20 +47,16 @@ public class LoginScreenController {
            lblIncorrectMassage.setText("Enter username and password");
            clearText();
        }
-
     }
 
 
-    public void clearText(
-
-    ) {
+    public void clearText() {
         txtPassword.clear();
     }
 
     public void forgetPasswordOnAction(ActionEvent actionEvent) {
         navigateTo("/View/ForgetPassword.fxml");
     }
-
 
     private  void navigateTo(String path) {
         try {

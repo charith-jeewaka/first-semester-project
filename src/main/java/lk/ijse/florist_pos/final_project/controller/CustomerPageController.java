@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import lk.ijse.florist_pos.final_project.dto.CustomerDto;
 import lk.ijse.florist_pos.final_project.dto.Tm.CustomerTM;
 import lk.ijse.florist_pos.final_project.model.CustomerModel;
 
@@ -13,13 +15,15 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CustomerPageController implements Initializable {
-    public TableColumn colRegisteredTime;
-    public TableColumn colAddress;
-    public TableColumn colEmail;
-    public TableColumn colMobile;
-    public TableColumn colName;
-    public TableColumn colId;
-    public TableView tblCustomer;
+
+    public TableView <CustomerTM> tblCustomer;
+    public TableColumn <CustomerTM,String> colRegisteredTime;
+    public TableColumn <CustomerTM,String> colAddress;
+    public TableColumn <CustomerTM,String> colEmail;
+    public TableColumn <CustomerTM,String> colMobile;
+    public TableColumn <CustomerTM,String> colName;
+    public TableColumn <CustomerTM,String> colId;
+
 
     public Button btnSave;
     public Button btnReset;
@@ -33,13 +37,15 @@ public class CustomerPageController implements Initializable {
     public TextArea txtSearchCustomer;
     public Label lblCustomerId;
 
-    CustomerModel customerModel = new CustomerModel();
 
     //regex patterns
     private final String namePattern = "^[A-Za-z ]+$";
-    private final String nicPattern = "^[0-9]{9}[vVxX]||[0-9]{12}$";
+    private final String phonePattern = "^[0-9]{10}$";
     private final String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-    private final String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
+    private final String addressPattern = "^[A-Za-z ]+$";
+
+    CustomerModel customerModel = new CustomerModel();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,8 +59,7 @@ public class CustomerPageController implements Initializable {
 
 
         try {
-//            loadTableData();
-//            loadNextId();
+            loadNextId();
             resetPage();
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,23 +69,7 @@ public class CustomerPageController implements Initializable {
 
 
     private void loadTableData() throws SQLException {
-//        1.
-//        ArrayList<CustomerDTO> customerDTOArrayList = customerModel.getAllCustomer();
-//        ObservableList<CustomerTM> customerTMS = FXCollections.observableArrayList();
 
-//        for (CustomerDTO customerDTO : customerDTOArrayList) {
-//            CustomerTM customerTM = new CustomerTM(
-//                    customerDTO.getCustomerId(),
-//                    customerDTO.getName(),
-//                    customerDTO.getNic(),
-//                    customerDTO.getEmail(),
-//                    customerDTO.getPhone()
-//            );
-//            customerTMS.add(customerTM);
-//        }
-//        tblCustomer.setItems(customerTMS);
-
-//        2. Full short code (Single line)
         tblCustomer.setItems(FXCollections.observableArrayList(
                 customerModel.getAllCustomer().stream()
                         .map(customerDTO -> new CustomerTM(
@@ -98,7 +87,7 @@ public class CustomerPageController implements Initializable {
     private void resetPage() {
         try {
             loadTableData();
-            customerModel.getNextCustomerId();
+            lblCustomerId.setText(customerModel.getNextCustomerId());
 
             // save button (id) -> enable
             btnSave.setDisable(false);
@@ -119,17 +108,121 @@ public class CustomerPageController implements Initializable {
 
 
     public void saveCustomerOnAction(ActionEvent actionEvent) {
+        String customerId = lblCustomerId.getText();
+        String name = txtName.getText();
+        String phone = txtPhone.getText();
+        String email = txtEmail.getText();
+        String address = txtAddress.getText();
+
+        boolean isValidName = name.matches(namePattern);
+        boolean isValidPhone = phone.matches(phonePattern);
+        boolean isValidEmail = email.matches(emailPattern);
+        boolean isValidAddress = address.matches(addressPattern);
+
+        CustomerDto customerDTO = new CustomerDto(
+                customerId,
+                name,
+                phone,
+                email,
+                address,
+                null
+        );
+
+        if (isValidName && isValidPhone && isValidEmail && isValidAddress) {
+            try {
+                boolean isSaved = customerModel.saveCustomer(customerDTO);
+
+                if (isSaved) {
+                    resetPage();
+                    new Alert(Alert.AlertType.INFORMATION, "Customer saved successfully.").show();
+                    resetPage();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Fail to save customer.").show();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "Fail to save customer.").show();
+            }
+        }
+
     }
 
-    public void updateCustomerOnAction(ActionEvent actionEvent) {
+    private void loadNextId() throws SQLException {
+        String nextId = customerModel.getNextCustomerId();
+        lblCustomerId.setText(nextId);
     }
 
-    public void deleteCustomerOnAction(ActionEvent actionEvent) {
+    public void updateCustomerOnAction(ActionEvent actionEvent) throws SQLException {
+
+        boolean isValidName = txtName.getText().matches(namePattern);
+        boolean isValidPhone = txtPhone.getText().matches(phonePattern);
+        boolean isValidEmail = txtEmail.getText().matches(emailPattern);
+        boolean isValidAddress = txtAddress.getText().matches(addressPattern);
+
+        String customerId = lblCustomerId.getText();
+        String name = txtName.getText();
+        String phone = txtPhone.getText();
+        String email = txtEmail.getText();
+        String address = txtAddress.getText();
+
+        if (isValidName && isValidPhone && isValidEmail && isValidAddress) {
+            CustomerDto customerDto = new CustomerDto(customerId,name,phone,email,address,null);
+            customerModel.updateCustomer(customerDto);
+            resetPage();
+            new Alert(Alert.AlertType.INFORMATION, "Customer updated successfully.").show();
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Invalid details.").show();
+        }
+
     }
 
-    public void searchCustomerOnAction(ActionEvent actionEvent) {
+    public void deleteCustomerOnAction(ActionEvent actionEvent) throws SQLException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this customer?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        if (alert.getResult() != ButtonType.YES) {
+            return;
+        }
+        customerModel.deleteCustomer(lblCustomerId.getText() );
+        resetPage();
+        new Alert(Alert.AlertType.INFORMATION, "Customer deleted successfully.").show();
+    }
+
+    public void searchCustomerOnAction(ActionEvent actionEvent) throws SQLException {
+        try {
+            CustomerDto customerDto = customerModel.searchCustomer(txtSearchCustomer.getText());
+            txtName.setText(customerDto.getCustomerName());
+            txtPhone.setText(customerDto.getMobileNumber());
+            txtEmail.setText(customerDto.getEmail());
+            txtAddress.setText(customerDto.getCustomerAddress());
+            lblCustomerId.setText(customerDto.getCustomerId());
+            btnSave.setDisable(true);
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
+            txtSearchCustomer.clear();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Customer not found.").show();
+            btnSave.setDisable(false);
+            btnDelete.setDisable(true);
+        }
     }
 
     public void resetCustomerPageOnAction(ActionEvent actionEvent) {
+        resetPage();
+    }
+
+    public void onClickTable(MouseEvent mouseEvent) {
+        CustomerTM selectedItem = tblCustomer.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            return;
+        }
+        lblCustomerId.setText(selectedItem.getCustomerId());
+        txtName.setText(selectedItem.getCustomerName());
+        txtPhone.setText(selectedItem.getCustomerPhone());
+        txtEmail.setText(selectedItem.getCustomerEmail());
+        txtAddress.setText(selectedItem.getCustomerAddress());
+        btnSave.setDisable(true);
+        btnDelete.setDisable(false);
+        btnUpdate.setDisable(false);
     }
 }
