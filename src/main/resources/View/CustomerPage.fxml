@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancCustomer" prefHeight="500.0" prefWidth="744.0" style="-fx-background-color: #636e72;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.CustomerPageController">
+<AnchorPane fx:id="ancCustomer" prefHeight="500.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.CustomerPageController">
    <children>
       <VBox layoutX="291.0" layoutY="24.0" prefHeight="182.0" prefWidth="744.0" AnchorPane.bottomAnchor="294.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0" />
       <VBox layoutX="10.0" layoutY="2.0" prefHeight="191.0" prefWidth="744.0" spacing="10.0" style="-fx-background-color: #dfe6e9;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -78,9 +78,9 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </VBox>
-      <ButtonBar buttonMinWidth="50.0" buttonOrder="" layoutY="191.0" prefHeight="37.0" prefWidth="744.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <ButtonBar buttonMinWidth="50.0" buttonOrder="" layoutY="192.0" prefHeight="43.0" prefWidth="744.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <buttons>
-          <Button fx:id="btnSearch" contentDisplay="CENTER" mnemonicParsing="false" onAction="#searchCustomerOnAction" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #00cec9;" text="Search">
+          <Button fx:id="btnSearch" contentDisplay="CENTER" mnemonicParsing="false" onAction="#searchCustomerOnAction" prefHeight="0.0" prefWidth="190.0" style="-fx-background-color: #00cec9;" text="Search">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -109,7 +109,7 @@
       </ButtonBar>
       <VBox layoutY="228.0" prefHeight="272.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="228.0">
          <children>
-            <TableView fx:id="tblCustomer" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #55efc4; -fx-border-color: #2C3A47; -fx-border-width: 0 0 1px 0;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tblCustomer" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" stylesheets="@../CssStyles/TableStyle.css" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="76.0" text="Customer Id" />
                 <TableColumn fx:id="colName" prefWidth="125.0" text="Customer Nmae" />

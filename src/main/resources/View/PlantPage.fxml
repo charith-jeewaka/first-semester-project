@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancPlant" prefHeight="500.0" prefWidth="744.0" style="-fx-background-color: #636e72;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.PlantPageController">
+<AnchorPane fx:id="ancPlant" prefHeight="500.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.PlantPageController">
    <children>
       <VBox layoutX="291.0" layoutY="24.0" prefHeight="182.0" prefWidth="744.0" AnchorPane.bottomAnchor="294.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0" />
       <VBox layoutX="10.0" layoutY="2.0" prefHeight="191.0" prefWidth="744.0" spacing="10.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -40,7 +39,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtname" prefHeight="31.0" prefWidth="450.0" promptText="ROSE PLANT" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <ComboBox fx:id="cmbPlant" prefHeight="25.0" prefWidth="124.0" promptText="Plant" HBox.hgrow="ALWAYS" />
+                  <JFXComboBox fx:id="cmbName" labelFloat="true" prefHeight="25.0" prefWidth="126.0" promptText="Plant" style="-fx-background-color: #7f8fa6;" />
                </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="110.0" prefHeight="7.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
@@ -51,7 +50,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtVarient" prefHeight="49.0" prefWidth="449.0" promptText="WHITE ROSE" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <ComboBox fx:id="cmbVarient" prefHeight="25.0" prefWidth="125.0" promptText="Plant Varient" />
+                  <JFXComboBox fx:id="cmbVarient" prefHeight="25.0" prefWidth="126.0" promptText="Plant Varient" style="-fx-background-color: #7f8fa6;" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -65,7 +64,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtPrice" prefHeight="45.0" prefWidth="450.0" promptText="1750" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <ComboBox fx:id="cmbHeight" prefHeight="25.0" prefWidth="124.0" promptText="Height (CM)" />
+                  <JFXComboBox fx:id="cmbHeight" prefHeight="25.0" prefWidth="126.0" promptText="Plant Height" style="-fx-background-color: #7f8fa6;" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -79,7 +78,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtQty" prefHeight="26.0" prefWidth="437.0" promptText="15" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <ComboBox fx:id="cmbQty" prefHeight="25.0" prefWidth="124.0" promptText="Plant Qty" />
+                  <JFXComboBox fx:id="cmbQty" prefHeight="25.0" prefWidth="126.0" promptText="Plant Qty" style="-fx-background-color: #7f8fa6;" />
                </children>
             </HBox>
          </children>
@@ -87,42 +86,10 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </VBox>
-      <HBox alignment="CENTER" layoutY="191.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <ButtonBar buttonMinWidth="50.0" buttonOrder="" prefHeight="37.0" prefWidth="744.0" HBox.hgrow="ALWAYS">
-               <buttons>
-                  <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#searchPlantOnAction" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #00cec9;" text="Search">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnDelete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deletePlantOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #00cec9;" text="Delete">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnUpdate" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updatePlantOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #00cec9;" text="Update">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnReset" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#resetPlantPageOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #00cec9;" text="Reset">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnSave" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#savePlantOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #00cec9;" text="Save">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </buttons>
-            </ButtonBar>
-         </children>
-      </HBox>
+      <HBox alignment="CENTER" layoutY="191.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <VBox layoutY="228.0" prefHeight="272.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="228.0">
          <children>
-            <TableView fx:id="tblPlant" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #dfe6e9; -fx-border-color: #2C3A47; -fx-border-width: 0 0 1px 0;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tblPlant" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #dcdde1;" stylesheets="@../CssStyles/TableStyle.css" VBox.vgrow="ALWAYS">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="68.0" text="Plant ID" />
                   <TableColumn fx:id="colName" prefWidth="131.0" text="Plant Name" />
@@ -141,6 +108,50 @@
             </TableView>
          </children>
       </VBox>
+      <HBox alignment="CENTER" layoutX="74.0" layoutY="195.0" prefHeight="33.0" prefWidth="657.0" spacing="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <JFXButton fx:id="btnPlantSearch" buttonType="RAISED" onAction="#plantSearchOnAction" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #7f8fa6;" text="Search">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnPlantUpdate" buttonType="RAISED" onAction="#plantUpdateOnAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #7f8fa6;" text="Update">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnPlantDelete" buttonType="RAISED" onAction="#plantDeleteOnAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #7f8fa6;" text="Delete">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnPlantPageReset" buttonType="RAISED" onAction="#plantPageResetOnAction" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #7f8fa6;" text="Reset">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnPlantSave" buttonType="RAISED" onAction="#plantSaveOnAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #7f8fa6;" text="Save" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
    </children>
    <opaqueInsets>
       <Insets left="10.0" right="10.0" />

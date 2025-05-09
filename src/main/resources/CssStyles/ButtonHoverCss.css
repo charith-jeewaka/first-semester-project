@@ -1,0 +1,13 @@
+.button {
+    -fx-background-color: #4CAF50; /* Normal background color */
+    -fx-text-fill: white; /* Normal text color */
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Hover background color */
+    -fx-cursor: hand; /* Cursor changes to hand on hover */
+}
