@@ -10,10 +10,9 @@ import lombok.*;
 public class FlowerTM {
     private String flowerId;
     private String flowerName;
-    private String flowerColor;
     private String flowerCategory;
     private String flowerPrice;
     private String flowerStatus;
     private String flowerAvailableQty;
-
+    private String flowerEnteredTime;
 }
