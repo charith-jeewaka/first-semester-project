@@ -185,7 +185,7 @@
                               <Insets top="10.0" />
                            </HBox.margin>
                            <graphic>
-                  
+
                                           <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                                  <children>
                                     <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutonAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: RED;" text="LOG OUT" textFill="WHITE">

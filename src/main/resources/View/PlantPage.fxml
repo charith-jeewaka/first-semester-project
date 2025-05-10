@@ -64,7 +64,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtPrice" prefHeight="45.0" prefWidth="450.0" promptText="1750" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <JFXComboBox fx:id="cmbHeight" prefHeight="25.0" prefWidth="126.0" promptText="Plant Height" style="-fx-background-color: #7f8fa6;" />
+                  <JFXComboBox fx:id="cmbHeight" prefHeight="25.0" prefWidth="126.0" promptText="Plant Height (Ft)" style="-fx-background-color: #7f8fa6;" />
                </children>
                <VBox.margin>
                   <Insets />

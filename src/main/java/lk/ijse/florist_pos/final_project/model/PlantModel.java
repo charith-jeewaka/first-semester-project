@@ -42,4 +42,37 @@ public class PlantModel {
         }
         return plantDTOArrayList;
     }
+
+    public boolean savePlant(PlantDto plantDTO) throws SQLException {
+        return CrudUtil.execute("insert into plant (plant_id, plant_name, plant_height, plant_price, plant_varient, plant_available_qty) values (?,?,?,?,?,?)",
+                plantDTO.getPlantId(),
+                plantDTO.getPlantName(),
+                plantDTO.getPlantHeight(),
+                plantDTO.getPlantPrice(),
+                plantDTO.getPlantVarient(),
+                plantDTO.getPlantAvailableQty()
+                );
+    }
+
+    public boolean updateCustomer(PlantDto plantDto) throws SQLException {
+        return CrudUtil.execute(
+                "UPDATE plant SET plant_id = ?, plant_name = ?, plant_height = ?, plant_price = ?, " +
+                        "plant_varient = ?, plant_available_qty = ?, plant_registered_time = ? WHERE plant_id = ?;",
+                plantDto.getPlantId(),
+                plantDto.getPlantName(),
+                plantDto.getPlantHeight(),
+                plantDto.getPlantPrice(),
+                plantDto.getPlantVarient(),
+                plantDto.getPlantAvailableQty(),
+                plantDto.getPlantRegisteredTime(),
+                plantDto.getPlantId() // This is the WHERE condition ID
+        );
+    }
+
+    public boolean deletePlant(String plantId) throws SQLException {
+        return CrudUtil.execute(
+                "delete from plant where plant_id=?",
+                plantId
+        );
+    }
 }
