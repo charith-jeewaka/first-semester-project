@@ -17,33 +17,33 @@
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="173.0" style="-fx-background-color: #4b4b4b;" VBox.vgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="173.0" style="-fx-background-color: #7f8c8d;" VBox.vgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="135.0" fitWidth="121.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../images/user.png" />
-                     </image>
+                  <ImageView fitHeight="143.0" fitWidth="152.0" pickOnBounds="true">
                      <effect>
                         <Glow />
                      </effect>
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <image>
+                        <Image url="@../images/user.png" />
+                     </image>
                   </ImageView>
-                  <Label text="WELCOME" textFill="WHITE">
+                  <Label text="WELCOME" textFill="#0d0d0d">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblCurrentUser" text="CHARITH" textFill="WHITE" />
-                  <Line endX="38.5" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+                  <Label fx:id="lblCurrentUser" text="CHARITH" />
+                  <Line endX="38.5" startX="-100.0" stroke="#030303" strokeWidth="2.0" />
 
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#homePageOnAction" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #3d3d3d;" text="HOME" textFill="WHITE">
+                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#homePageOnAction" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #bdc3c7;" text="HOME">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -53,20 +53,7 @@
 
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button fx:id="btnCustomer" mnemonicParsing="false" onAction="#customerPageOnAction" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #3d3d3d;" text="CUSTOMER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="10.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-
-                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-                     <children>
-                        <Button fx:id="btnPlants" mnemonicParsing="false" onAction="#plantsOnAction" prefHeight="25.0" prefWidth="186.0" style="-fx-background-color: #3d3d3d;" text="PLANTS" textFill="WHITE">
+                        <Button fx:id="btnCustomer" mnemonicParsing="false" onAction="#customerPageOnAction" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #bdc3c7;" text="CUSTOMER">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -79,7 +66,7 @@
 
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button fx:id="btnFlowers" mnemonicParsing="false" onAction="#flowersOnAction" prefHeight="25.0" prefWidth="222.0" style="-fx-background-color: #3d3d3d;" text="FLOWERS" textFill="WHITE">
+                        <Button fx:id="btnPlants" mnemonicParsing="false" onAction="#plantsOnAction" prefHeight="25.0" prefWidth="186.0" style="-fx-background-color: #bdc3c7;" text="PLANTS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -92,7 +79,7 @@
 
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button fx:id="btnOrders" mnemonicParsing="false" onAction="#ordersOnAction" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #3d3d3d;" text="ORDERS" textFill="WHITE">
+                        <Button fx:id="btnFlowers" mnemonicParsing="false" onAction="#flowersOnAction" prefHeight="25.0" prefWidth="222.0" style="-fx-background-color: #bdc3c7;" text="FLOWERS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -105,7 +92,20 @@
 
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button fx:id="btnItemWaste" mnemonicParsing="false" onAction="#itemWasteOnAction" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="ITEM WASTE" textFill="WHITE">
+                        <Button fx:id="btnOrders" mnemonicParsing="false" onAction="#ordersOnAction" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #bdc3c7;" text="ORDERS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <Button fx:id="btnItemWaste" mnemonicParsing="false" onAction="#itemWasteOnAction" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="ITEM WASTE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -117,7 +117,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="REPORTS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -129,7 +129,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="REPORTS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -141,7 +141,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="REPORTS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -153,7 +153,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="REPORTS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -165,7 +165,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="REPORTS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -177,7 +177,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #3d3d3d;" text="REPORTS" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="REPORTS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

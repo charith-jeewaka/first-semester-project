@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="ancFlower" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.FlowerPageController">
    <children>
       <AnchorPane fx:id="ancPlant" layoutY="7.0" prefHeight="500.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -145,7 +144,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnPlantSaveFlower" buttonType="RAISED" onAction="#flowerSaveOnAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #7f8fa6;" text="Save" HBox.hgrow="ALWAYS">
+                  <JFXButton fx:id="btnSaveFlower" buttonType="RAISED" onAction="#flowerSaveOnAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #7f8fa6;" text="Save" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>

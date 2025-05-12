@@ -11,7 +11,7 @@ public class EmployeeDto {
     }
 
     public EmployeeDto(int employeeId,String employeeName, String employeeSalary, String employeeBOD,
-                       String employeePosition, String employeeAddress) {
+                       String employeePosition, String employeeAddress){
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeSalary = employeeSalary;

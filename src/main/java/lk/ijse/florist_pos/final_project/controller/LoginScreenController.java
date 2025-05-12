@@ -3,17 +3,18 @@ package lk.ijse.florist_pos.final_project.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lk.ijse.florist_pos.final_project.model.SystemUserModel;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-
-
-public class LoginScreenController {
+public class LoginScreenController implements Initializable {
     @FXML
     public TextField txtUserName;
     @FXML
@@ -28,6 +29,13 @@ public class LoginScreenController {
     public Button btnForgetPassword;
     @FXML
     public BorderPane AncLoginContainer;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtUserName.setOnAction(e -> txtPassword.requestFocus());
+        txtPassword.setOnAction(e -> btnLoggin.fire());
+    }
 
     public void btnCancelOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -73,6 +81,8 @@ public class LoginScreenController {
             e.printStackTrace();
         }
     }
+
+
 }
 
 

@@ -1,9 +1,11 @@
 package lk.ijse.florist_pos.final_project.model;
 
+import lk.ijse.florist_pos.final_project.dto.FlowerDto;
 import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class FlowerModel {
     public String getNextFlowerId() throws SQLException {
@@ -21,4 +23,49 @@ public class FlowerModel {
         // No data recode in table so return initial primary key
         return tableCharacter + "001";
     }
+
+    public ArrayList<FlowerDto> getAllFlower() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("select * from flower");
+        ArrayList<FlowerDto> flowerDTOArrayList = new ArrayList<>();
+        while (resultSet.next()){
+            FlowerDto flowerDTO = new FlowerDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7)
+            );
+            flowerDTOArrayList.add(flowerDTO);
+        }
+        return flowerDTOArrayList;
+    }
+
+    public boolean saveFlower(FlowerDto flowerDto) throws SQLException {
+        return CrudUtil.execute("INSERT INTO flower (flower_id, flower_name, flower_catagory, flower_price, flower_status, flower_available_qty) VALUES (?, ?, ?, ?, ?, ?)",
+        flowerDto.getFlowerId(),
+        flowerDto.getFlowerName(),
+        flowerDto.getFlowerCategory(),
+        flowerDto.getFlowerPrice(),
+        flowerDto.getFlowerStatus(),
+        flowerDto.getFlowerAvailableQty()
+        );
+    }
+
+    public boolean updateFlower(FlowerDto flowerDto) throws SQLException {
+        return CrudUtil.execute(
+                "UPDATE flower SET flower_name = ?, flower_catagory = ?, flower_price = ?, flower_available_qty = ? WHERE flower_id = ?",
+                flowerDto.getFlowerName(),
+                flowerDto.getFlowerCategory(),
+                flowerDto.getFlowerPrice(),
+                flowerDto.getFlowerAvailableQty(),
+                flowerDto.getFlowerId() // <-- Add this
+        );
+    }
+
+    public boolean deleteFlower(String flowerId) throws SQLException {
+        return CrudUtil.execute("DELETE FROM flower WHERE flower_id = ?", flowerId);
+    }
+
 }
