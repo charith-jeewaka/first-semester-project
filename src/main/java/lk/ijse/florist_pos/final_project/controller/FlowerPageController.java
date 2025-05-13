@@ -215,6 +215,7 @@ public class FlowerPageController implements Initializable {
 
     public void resetFlowerPage(){
         try {
+            flowerModel.updateFlowerLifeStatus();
             loadTableData();
             loadNextFlowerId();
             txtFlowerName.clear();

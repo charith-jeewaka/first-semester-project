@@ -67,5 +67,49 @@ public class FlowerModel {
     public boolean deleteFlower(String flowerId) throws SQLException {
         return CrudUtil.execute("DELETE FROM flower WHERE flower_id = ?", flowerId);
     }
+    public void updateFlowerLifeStatus() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM flower");
+        while (resultSet.next()) {
+            String flowerId = resultSet.getString("flower_id");
+            String flowerName = resultSet.getString("flower_name");
+            int qty = Integer.parseInt(resultSet.getString("flower_available_qty"));
+            double price = Double.parseDouble(resultSet.getString("flower_price"));
+            String status = resultSet.getString("flower_status");
+            java.sql.Timestamp enteredTime = resultSet.getTimestamp("flower_entered_time");
+
+            long currentTime = System.currentTimeMillis();
+            long timeDiff = currentTime - enteredTime.getTime();
+            long days = timeDiff / (1000 * 60 * 60 * 24);
+
+            if (days >= 4) {
+                // Move to flower_waste and delete from flower table
+                CrudUtil.execute(
+                        "INSERT INTO flower_waste (flower_id, wasted_flower_name, wasted_flower_qty, reason) VALUES (?, ?, ?, ?)",
+                        flowerId, flowerName, qty, "Expired - Over 4 days"
+                );
+                CrudUtil.execute("DELETE FROM flower WHERE flower_id = ?", flowerId);
+            } else if (days >= 2 && !"Discounted".equalsIgnoreCase(status)) {
+                double discountedPrice = price * 0.8;
+                CrudUtil.execute(
+                        "UPDATE flower SET flower_status = ?, flower_price = ? WHERE flower_id = ?",
+                        "Discounted", String.valueOf((int) discountedPrice), flowerId
+                );
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
