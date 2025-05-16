@@ -93,12 +93,12 @@
                <children>
                   <TableView fx:id="tblFlower" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #dcdde1;" stylesheets="@../CssStyles/TableStyle.css" VBox.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn fx:id="colFlowerId" prefWidth="68.0" text="Flower Id" />
-                        <TableColumn fx:id="colFlowerName" prefWidth="131.0" text="Flower Name" />
+                        <TableColumn fx:id="colFlowerId" prefWidth="81.0" text="Flower Id" />
+                        <TableColumn fx:id="colFlowerName" prefWidth="123.0" text="Flower Name" />
                         <TableColumn fx:id="colFlowerCategory" prefWidth="131.0" text="Flower Category" />
                         <TableColumn fx:id="colFlowerPrice" prefWidth="131.0" text="Flower Price" />
-                        <TableColumn fx:id="colFlowerQty" prefWidth="81.0" text="Flower Qty" />
-                        <TableColumn fx:id="colFlowerStatus" prefWidth="75.0" text="Status" />
+                        <TableColumn fx:id="colFlowerQty" prefWidth="99.0" text="Flower Qty" />
+                        <TableColumn fx:id="colFlowerStatus" prefWidth="59.0" text="Status" />
                         <TableColumn fx:id="colFlowerRegisteredTime" prefWidth="147.0" text="Flower Registered Time" />
                      </columns>
                      <padding>

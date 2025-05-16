@@ -8,7 +8,10 @@ import lombok.*;
 @Setter
 @Getter
 public class FlowerWasteDto {
+ private String wastedId;
  private String flowerId;
- private String flowerWasteQty;
+ private String flowerName;
+ private String flowerQty;
  private String reason;
+ private String wasteDate;
 }

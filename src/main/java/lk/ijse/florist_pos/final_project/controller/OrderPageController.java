@@ -3,13 +3,12 @@ package lk.ijse.florist_pos.final_project.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import lk.ijse.florist_pos.final_project.model.OrderModel;
+
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class OrderPageController implements Initializable {
@@ -38,21 +37,56 @@ public class OrderPageController implements Initializable {
     public TextField txtItemId;
     public TextField txtCustomerMobile;
 
+    OrderModel orderModel = new OrderModel();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         LocalDate currentDate = LocalDate.now();
         lblOrderDate.setText(currentDate.toString());
+        txtItemId.setOnAction(e -> txtAddToCartQty.requestFocus());
+        txtAddToCartQty.setOnAction(e -> btnAddToCart.fire());
+        try {
+            resetPage();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Something went wrong.").show();
+        }
 
     }
 
     public void addToCartOnAction(ActionEvent actionEvent) {
     }
 
-    public void resetOrderOnAction(ActionEvent actionEvent) {
+    public void resetOrderOnAction(ActionEvent actionEvent) throws SQLException {
+        resetPage();
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
+    }
+
+    public void loadNextOrderId() throws SQLException {
+        String nextOid = orderModel.getNextCustomerId();
+        lblOrderId.setText(nextOid);
+    }
+
+
+    public void resetPage() throws SQLException {
+
+        try {
+            loadNextOrderId();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Something went wrong Loading id.").show();
+        }
+        txtAddToCartQty.clear();
+        txtCustomerMobile.clear();
+        txtItemId.clear();
+        lblItemName.setText("");
+        lblItemPrice.setText("");
+        lblQtyOnHand.setText("");
+        lblTotalBill.setText("");
+        lblCustomerName.setText("");
     }
 
 

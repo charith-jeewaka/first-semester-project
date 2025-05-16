@@ -3,15 +3,16 @@ package lk.ijse.florist_pos.final_project.dto;
 import lk.ijse.florist_pos.final_project.enums.ItemType;
 import lombok.*;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
-public class OrderItemDto {
+public class OrderItemDetailsDto {
+    private String orderItemDetailId;
     private String orderItemId;
-    private String orderId;
     private ItemType itemType;
     private String itemId;
-    private int quantity;
+    private String itemName;
+    private double price;
 }

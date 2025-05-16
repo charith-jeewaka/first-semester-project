@@ -174,6 +174,7 @@
                   <TableColumn fx:id="colQuantity" prefWidth="75.0" text="Cart Quantity" />
                   <TableColumn fx:id="colPrice" prefWidth="75.0" text="Unit Price" />
                   <TableColumn fx:id="colTotal" prefWidth="75.0" text="Total" />
+                  <TableColumn fx:id="colCustomerName" prefWidth="75.0" text="Customer Name" />
                   <TableColumn fx:id="colAction" prefWidth="75.0" text="Action" />
                </columns>
                <columnResizePolicy>

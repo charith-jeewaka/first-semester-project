@@ -88,7 +88,7 @@ public class PlantPageController implements Initializable {
         cmbQty.setItems(plantQtys);
         cmbQty.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtQty.setText(newValue.toString());  // Fill the text field with selected plant name
+                txtQty.setText(newValue.toString());
             }
         });
 
@@ -98,7 +98,7 @@ public class PlantPageController implements Initializable {
         cmbVarient.setItems(plantVariatys);
         cmbVarient.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtVarient.setText(newValue.toString());  // Fill the text field with selected plant name
+                txtVarient.setText(newValue.toString());
             }
         });
 

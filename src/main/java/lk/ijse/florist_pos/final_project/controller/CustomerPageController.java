@@ -108,6 +108,7 @@ public class CustomerPageController implements Initializable {
 
 
     public void saveCustomerOnAction(ActionEvent actionEvent) {
+
         String customerId = lblCustomerId.getText();
         String name = txtName.getText();
         String phone = txtPhone.getText();
