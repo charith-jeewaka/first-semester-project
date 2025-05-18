@@ -9,9 +9,7 @@ import lombok.*;
 @Setter
 @ToString
 public class OrderItemDto {
-    private String orderItemId;
-    private String orderId;
-    private ItemType itemType;
-    private String itemId;
+    private String orderItemName;
+    private double unitPrice;
     private int quantity;
 }

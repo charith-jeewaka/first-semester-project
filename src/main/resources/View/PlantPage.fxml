@@ -89,7 +89,7 @@
       <HBox alignment="CENTER" layoutY="191.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <VBox layoutY="228.0" prefHeight="272.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="228.0">
          <children>
-            <TableView fx:id="tblPlant" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #dcdde1;" stylesheets="@../CssStyles/TableStyle.css" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tblPlant" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #dcdde1;" stylesheets="@../CssStyles/table1.css" VBox.vgrow="ALWAYS">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="68.0" text="Plant ID" />
                   <TableColumn fx:id="colName" prefWidth="131.0" text="Plant Name" />
