@@ -76,7 +76,7 @@
                                     <Insets left="30.0" />
                                  </padding>
                               </Label>
-                              <Label fx:id="lblCustomerName" alignment="CENTER" prefHeight="26.0" prefWidth="216.0" text="Unknown">
+                              <Label fx:id="lblCustomerName" alignment="CENTER" prefHeight="26.0" prefWidth="216.0" text="Name">
                                  <font>
                                     <Font name="Calibri Bold" size="14.0" />
                                  </font>

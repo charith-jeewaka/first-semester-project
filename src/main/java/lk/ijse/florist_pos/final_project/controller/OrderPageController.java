@@ -17,20 +17,21 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class OrderPageController implements Initializable {
+
     public Button btnSearchItem;
     public JFXButton btnPlaceOrder;
     public JFXButton btnReset;
     public JFXButton btnAddToCart;
     public Button btnSearchCustomer;
 
-    public TableColumn colCustomerName;
-    public TableColumn colItemId;
-    public TableColumn colAction;
-    public TableColumn colTotal;
-    public TableColumn colPrice;
-    public TableColumn colQuantity;
-    public TableColumn colItemName;
-    public TableView tblCart;
+    public TableColumn<CartTm, String> colItemId;
+    public TableColumn<CartTm, String> colItemName;
+    public TableColumn<CartTm, Integer> colQuantity;
+    public TableColumn<CartTm, Double> colPrice;
+    public TableColumn<CartTm, Double> colTotal;
+    public TableColumn<CartTm, String> colCustomerName;
+    public TableColumn<CartTm, Button> colAction;
+    public TableView<CartTm> tblCart;
 
     public Label lblTotalBill;
     public Label lblItemName;
@@ -44,18 +45,35 @@ public class OrderPageController implements Initializable {
     public TextField txtItemId;
     public TextField txtCustomerMobile;
 
-    private ObservableList<CartTm> cartTmList = FXCollections.observableArrayList();
-
-
-    OrderModel orderModel = new OrderModel();
+    private final ObservableList<CartTm> cartTmList = FXCollections.observableArrayList();
+    private final OrderModel orderModel = new OrderModel();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory();
-        LocalDate currentDate = LocalDate.now();
-        lblOrderDate.setText(currentDate.toString());
+        lblOrderDate.setText(LocalDate.now().toString());
+        txtCustomerMobile.requestFocus();
+
+        txtCustomerMobile.setOnAction(e -> {
+            String customerMobile = txtCustomerMobile.getText();
+            try {
+                String customerName = orderModel.getCustomerName(customerMobile);
+                if (customerName != null) {
+                    lblCustomerName.setText(customerName);
+                    txtItemId.requestFocus();
+                } else {
+                    lblCustomerName.setText("Unknown");
+                    new Alert(Alert.AlertType.INFORMATION, "Customer not found").show();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "Database error occurred").show();
+            }
+        });
+
         txtItemId.setOnAction(e -> txtAddToCartQty.requestFocus());
         txtAddToCartQty.setOnAction(e -> btnAddToCart.fire());
+
         try {
             resetPage();
         } catch (SQLException e) {
@@ -64,7 +82,7 @@ public class OrderPageController implements Initializable {
         }
     }
 
-    public void setCellValueFactory() {
+    private void setCellValueFactory() {
         colItemId.setCellValueFactory(new PropertyValueFactory<>("itemId"));
         colItemName.setCellValueFactory(new PropertyValueFactory<>("itemName"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("cartQty"));
@@ -82,14 +100,13 @@ public class OrderPageController implements Initializable {
         String qtyOnHandText = lblQtyOnHand.getText();
         String customerName = lblCustomerName.getText();
 
-        // Validation
         if (itemId.isEmpty() || qtyText.isEmpty() || unitPriceText.isEmpty() || itemName.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please fill all the fields").show();
             return;
         }
 
         int qty = Integer.parseInt(qtyText);
-        double unitPrice = Double.parseDouble(unitPriceText); // Changed to double
+        double unitPrice = Double.parseDouble(unitPriceText);
         int qtyOnHand = Integer.parseInt(qtyOnHandText);
 
         if (qty > qtyOnHand) {
@@ -99,26 +116,28 @@ public class OrderPageController implements Initializable {
 
         double totalAmount = qty * unitPrice;
 
-        // Check if item already exists in the cart
-        CartTm existingItem = null;
-        for (CartTm item : cartTmList) {
-            if (item.getItemId().equals(itemId)) {
-                existingItem = item;
-                break;
-            }
-        }
+        CartTm existingItem = cartTmList.stream()
+                .filter(item -> item.getItemId().equals(itemId))
+                .findFirst()
+                .orElse(null);
 
         if (existingItem != null) {
             existingItem.setCartQty(existingItem.getCartQty() + qty);
-            existingItem.setTotal(existingItem.getCartQty() * unitPrice); // Changed to double
+            existingItem.setTotal(existingItem.getCartQty() * unitPrice);
         } else {
             JFXButton btnRemove = new JFXButton("Remove");
             CartTm cartTm = new CartTm(itemId, itemName, qty, unitPrice, totalAmount, customerName, btnRemove);
 
-            // Add remove button functionality
             btnRemove.setOnAction(e -> {
                 cartTmList.remove(cartTm);
                 tblCart.refresh();
+                lblTotalBill.setText(getTotalBill());
+
+                // Re-enable customer input if cart becomes empty
+                if (cartTmList.isEmpty()) {
+                    txtCustomerMobile.setDisable(false);
+                    lblCustomerName.setDisable(false);
+                }
             });
 
             cartTmList.add(cartTm);
@@ -126,41 +145,39 @@ public class OrderPageController implements Initializable {
 
         tblCart.setItems(cartTmList);
         tblCart.refresh();
+        lblTotalBill.setText(getTotalBill());
 
         int updatedQtyOnHand = qtyOnHand - qty;
         lblQtyOnHand.setText(String.valueOf(updatedQtyOnHand));
 
-        // Clear inputs
         txtItemId.clear();
         txtAddToCartQty.clear();
         lblItemPrice.setText("");
         lblItemName.setText("");
         lblQtyOnHand.setText("");
+
+        // ✅ Disable customer input after item is added
+        txtCustomerMobile.setDisable(true);
+        lblCustomerName.setDisable(true);
     }
-
-
 
     public void resetOrderOnAction(ActionEvent actionEvent) throws SQLException {
         resetPage();
+        txtCustomerMobile.setDisable(false);
+        lblCustomerName.setDisable(false);
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
+        new Alert(Alert.AlertType.INFORMATION, "Place Order feature not implemented yet.").show();
     }
 
-    public void loadNextOrderId() throws SQLException {
+    private void loadNextOrderId() throws SQLException {
         String nextOid = orderModel.getNextCustomerId();
         lblOrderId.setText(nextOid);
     }
 
-
     public void resetPage() throws SQLException {
-
-        try {
-            loadNextOrderId();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Something went wrong Loading id.").show();
-        }
+        loadNextOrderId();
         txtAddToCartQty.clear();
         txtCustomerMobile.clear();
         txtItemId.clear();
@@ -169,8 +186,10 @@ public class OrderPageController implements Initializable {
         lblQtyOnHand.setText("");
         lblTotalBill.setText("");
         lblCustomerName.setText("");
+        cartTmList.clear();
+        tblCart.setItems(cartTmList);
+        tblCart.refresh();
     }
-
 
     public void searchCustomerOnAction(ActionEvent actionEvent) {
         try {
@@ -183,7 +202,6 @@ public class OrderPageController implements Initializable {
                 lblCustomerName.setText("Unknown");
                 new Alert(Alert.AlertType.INFORMATION, "Customer not found").show();
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Database error occurred").show();
@@ -209,7 +227,13 @@ public class OrderPageController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Database error occurred").show();
         }
+    }
 
-
+    public String getTotalBill() {
+        double total = tblCart.getItems()
+                .stream()
+                .mapToDouble(CartTm::getTotal)
+                .sum();
+        return String.valueOf(total);
     }
 }
