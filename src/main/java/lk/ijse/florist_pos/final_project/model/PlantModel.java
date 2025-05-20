@@ -4,6 +4,8 @@ import lk.ijse.florist_pos.final_project.dto.CustomerDto;
 import lk.ijse.florist_pos.final_project.dto.PlantDto;
 import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -74,5 +76,13 @@ public class PlantModel {
                 "delete from plant where plant_id=?",
                 plantId
         );
+    }
+
+    public boolean reducePlantQty(Connection con, String plantId, int qty) throws SQLException {
+        String sql = "UPDATE plant SET plant_available_qty = plant_available_qty - ? WHERE plant_id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, qty);
+        ps.setString(2, plantId);
+        return ps.executeUpdate() > 0;
     }
 }

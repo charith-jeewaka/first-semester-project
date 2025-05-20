@@ -1,12 +1,14 @@
 package lk.ijse.florist_pos.final_project.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.florist_pos.final_project.dto.OrderDetailsDto;
 import lk.ijse.florist_pos.final_project.dto.OrderItemDto;
 import lk.ijse.florist_pos.final_project.dto.Tm.CartTm;
 import lk.ijse.florist_pos.final_project.model.OrderModel;
@@ -14,6 +16,9 @@ import lk.ijse.florist_pos.final_project.model.OrderModel;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class OrderPageController implements Initializable {
@@ -47,9 +52,20 @@ public class OrderPageController implements Initializable {
 
     private final ObservableList<CartTm> cartTmList = FXCollections.observableArrayList();
     private final OrderModel orderModel = new OrderModel();
+    public JFXRadioButton rbtnCard;
+    public JFXRadioButton rbtnCash;
+    public ToggleGroup paymentType = new ToggleGroup();
+    private DashboardController dashboardController = new DashboardController();
+
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        rbtnCard.setToggleGroup(paymentType);
+        rbtnCash.setToggleGroup(paymentType);
+        rbtnCash.setSelected(true);
         setCellValueFactory();
         lblOrderDate.setText(LocalDate.now().toString());
         txtCustomerMobile.requestFocus();
@@ -156,7 +172,7 @@ public class OrderPageController implements Initializable {
         lblItemName.setText("");
         lblQtyOnHand.setText("");
 
-        // ✅ Disable customer input after item is added
+        // Disable customer input after item is added
         txtCustomerMobile.setDisable(true);
         lblCustomerName.setDisable(true);
     }
@@ -165,14 +181,55 @@ public class OrderPageController implements Initializable {
         resetPage();
         txtCustomerMobile.setDisable(false);
         lblCustomerName.setDisable(false);
+        lblCustomerName.setText("");
+        txtCustomerMobile.clear();
     }
 
-    public void placeOrderOnAction(ActionEvent actionEvent) {
-        new Alert(Alert.AlertType.INFORMATION, "Place Order feature not implemented yet.").show();
+    public void placeOrderOnAction(ActionEvent actionEvent) throws SQLException {
+        if (tblCart.getItems().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please add items to cart").show();
+            return;
+        }
+
+        String orderId = lblOrderId.getText();
+        String selectedPaymentType = ((JFXRadioButton) paymentType.getSelectedToggle()).getText();
+        String handledBy = "admin";
+        String orderDate = lblOrderDate.getText();
+        String totalBill = lblTotalBill.getText();
+
+        ObservableList<CartTm> cartList = tblCart.getItems();
+        List<OrderDetailsDto> orderDetailsList = new ArrayList<>();
+
+        for (CartTm cartItem : cartList) {
+            OrderDetailsDto dto = new OrderDetailsDto(
+                    orderId,
+                    cartItem.getCustomerName(),
+                    cartItem.getItemName(),
+                    cartItem.getItemId(),
+                    selectedPaymentType,
+                    String.valueOf(cartItem.getCartQty()),
+                    String.valueOf(cartItem.getTotal()),
+                    handledBy,
+                    orderDate,
+                    totalBill
+            );
+            orderDetailsList.add(dto);
+        }
+
+        boolean isPlaced = orderModel.placeOrder(orderDetailsList);
+
+        if (isPlaced) {
+            new Alert(Alert.AlertType.INFORMATION, "Order placed successfully").show();
+            resetPage();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Something went wrong while placing the order.").show();
+        }
     }
+
+
 
     private void loadNextOrderId() throws SQLException {
-        String nextOid = orderModel.getNextCustomerId();
+        String nextOid = orderModel.getNextOrderId();
         lblOrderId.setText(nextOid);
     }
 
@@ -185,7 +242,6 @@ public class OrderPageController implements Initializable {
         lblItemPrice.setText("");
         lblQtyOnHand.setText("");
         lblTotalBill.setText("");
-        lblCustomerName.setText("");
         cartTmList.clear();
         tblCart.setItems(cartTmList);
         tblCart.refresh();

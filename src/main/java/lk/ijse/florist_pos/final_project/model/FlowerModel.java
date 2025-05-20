@@ -3,6 +3,8 @@ package lk.ijse.florist_pos.final_project.model;
 import lk.ijse.florist_pos.final_project.dto.FlowerDto;
 import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -98,18 +100,13 @@ public class FlowerModel {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    public boolean reduceFlowerQty(Connection con, String flowerId, int qty) throws SQLException {
+        String sql = "UPDATE flower SET flower_available_qty = flower_available_qty - ? WHERE flower_id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, qty);
+        ps.setString(2, flowerId);
+        return ps.executeUpdate() > 0;
+    }
 
 
 }

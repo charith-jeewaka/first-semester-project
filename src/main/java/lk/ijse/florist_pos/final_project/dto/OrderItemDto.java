@@ -1,6 +1,5 @@
 package lk.ijse.florist_pos.final_project.dto;
 
-import lk.ijse.florist_pos.final_project.enums.ItemType;
 import lombok.*;
 
 @AllArgsConstructor

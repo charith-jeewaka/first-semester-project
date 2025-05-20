@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -189,14 +190,20 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="704.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="704.0">
                <children>
-                  <Label prefHeight="20.0" prefWidth="93.0" text="Total Bill Rs :-">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblTotalBill" prefHeight="20.0" prefWidth="131.0" style="-fx-background-color: #bdc3c7;">
+                  <JFXRadioButton fx:id="rbtnCard" text="Card">
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="rbtnCash" text="Cash">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </JFXRadioButton>
+                  <JFXButton prefHeight="25.0" prefWidth="99.0" text="Total Bill :-" />
+                  <Label fx:id="lblTotalBill" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #bdc3c7;">
                      <font>
                         <Font size="14.0" />
                      </font>
