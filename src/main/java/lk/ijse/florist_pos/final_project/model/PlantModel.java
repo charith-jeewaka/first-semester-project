@@ -85,4 +85,13 @@ public class PlantModel {
         ps.setString(2, plantId);
         return ps.executeUpdate() > 0;
     }
+
+    public static boolean reduceQty(String plantId, int qtyToReduce, Connection connection) throws SQLException {
+        String sql = "UPDATE plant SET plant_available_qty = plant_available_qty - ? WHERE plant_id = ? AND plant_available_qty >= ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setInt(1, qtyToReduce);
+        pstm.setString(2, plantId);
+        pstm.setInt(3, qtyToReduce);
+        return pstm.executeUpdate() > 0;
+    }
 }

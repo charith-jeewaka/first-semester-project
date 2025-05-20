@@ -61,9 +61,9 @@ public class OrderModel {
         try {
             connection.setAutoCommit(false); // Start transaction
 
-            // Insert into `orders` table
-            String orderSql = "INSERT INTO orders ( order_id,customer_name, item_name, item_id, payment_type, item_qty, total_amount, handled_by, total_bill, order_date) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ?)";
+            // 1. Insert orders
+            String orderSql = "INSERT INTO orders (order_id, customer_name, item_name, item_id, payment_type, item_qty, total_amount, handled_by, total_bill, order_date) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement orderPstm = connection.prepareStatement(orderSql);
 
             for (OrderDetailsDto dto : orderDetailsList) {
@@ -79,22 +79,41 @@ public class OrderModel {
                 orderPstm.setString(10, dto.getOrderDate());
 
                 orderPstm.addBatch();
+
+                // 2. Reduce item quantity
+                String itemId = dto.getItemId();
+                int qtyToReduce = Integer.parseInt(dto.getItemQty());
+
+                if (itemId.startsWith("P")) {
+                    // It's a plant
+                    if (!PlantModel.reduceQty(itemId, qtyToReduce, connection)) {
+                        connection.rollback();
+                        return false;
+                    }
+                } else if (itemId.startsWith("F")) {
+                    // It's a flower
+                    if (!FlowerModel.reduceQty(itemId, qtyToReduce, connection)) {
+                        connection.rollback();
+                        return false;
+                    }
+                }
             }
 
-            int[] orderResult = orderPstm.executeBatch(); // Insert all orders
+            int[] orderResult = orderPstm.executeBatch();
 
-            connection.commit(); // If no errors, commit transaction
+            connection.commit();
             isSuccess = true;
 
         } catch (SQLException e) {
-            connection.rollback(); // Rollback everything if error occurs
+            connection.rollback();
             e.printStackTrace();
         } finally {
-            connection.setAutoCommit(true); // Restore auto-commit
+            connection.setAutoCommit(true);
         }
 
         return isSuccess;
     }
+
 
 
 }

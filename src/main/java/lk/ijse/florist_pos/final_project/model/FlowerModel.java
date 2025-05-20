@@ -108,5 +108,14 @@ public class FlowerModel {
         return ps.executeUpdate() > 0;
     }
 
+    public static boolean reduceQty(String flowerId, int qtyToReduce, Connection connection) throws SQLException {
+        String sql = "UPDATE flower SET flower_available_qty = flower_available_qty - ? WHERE flower_id = ? AND flower_available_qty >= ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setInt(1, qtyToReduce);
+        pstm.setString(2, flowerId);
+        pstm.setInt(3, qtyToReduce);
+        return pstm.executeUpdate() > 0;
+    }
+
 
 }
