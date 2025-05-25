@@ -36,6 +36,7 @@ public class SystemUserModel {
                 Parent root = loader.load();
                 DashboardController dashboardController = loader.getController();
                 dashboardController.lblCurrentUser.setText(resultSet.getString("user_name"));
+                dashboardController.lblDashBoardName.setText(resultSet.getString("user_name"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.show();

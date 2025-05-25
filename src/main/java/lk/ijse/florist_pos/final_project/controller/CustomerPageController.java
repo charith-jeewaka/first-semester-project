@@ -5,9 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import lk.ijse.florist_pos.final_project.dto.CustomerDto;
 import lk.ijse.florist_pos.final_project.dto.Tm.CustomerTM;
 import lk.ijse.florist_pos.final_project.model.CustomerModel;
@@ -236,15 +239,33 @@ public class CustomerPageController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Please select a customer.").show();
             return;
         }
-        try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/lk/ijse/florist_pos/final_project/view/SendEmailPage.fxml"));
 
-            Parent load = loader.load();
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        String email = selectedCustomer.getCustomerEmail();
+        if (!email.matches(emailPattern)) {
+            new Alert(Alert.AlertType.ERROR, "Selected customer has an invalid email.").show();
+            return;
         }
-    }
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/SendMail.fxml"));
+        Parent root = loader.load();
+
+        // Get the controller and pass the email
+        SendMailPageController sendMailController = loader.getController();
+        sendMailController.setEmail(email);
+
+        // Create a new stage for the Send Mail popup
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Send Email");
+
+        // ✅ Make it modal (block interaction with other windows)
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        // ✅ Optional: make it owned by the current window
+        stage.initOwner(((Stage) tblCustomer.getScene().getWindow()));
+
+        // Show and wait until it closes
+        stage.showAndWait();
+    }
     }
 

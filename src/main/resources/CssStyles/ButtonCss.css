@@ -1,12 +1,11 @@
-.round-button {
-    -fx-background-color: #4CAF50; /* Green */
+.jfx-button-green {
+    -fx-background-color: #4CAF50;
     -fx-text-fill: white;
-    -fx-background-radius: 12;
-    -fx-border-radius: 12;
     -fx-font-size: 14px;
+    -fx-background-radius: 20;
     -fx-cursor: hand;
-    -fx-padding: 8 16;
+    -fx-padding: 10 20;
 }
-.round-button:hover {
-    -fx-background-color: #45a049; /* Darker green on hover */
+.jfx-button-green:hover {
+    -fx-background-color: #388E3C;
 }

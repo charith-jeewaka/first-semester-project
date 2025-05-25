@@ -1,5 +1,6 @@
 package lk.ijse.florist_pos.final_project.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,8 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -41,9 +44,14 @@ public class DashboardController implements Initializable {
     public Button btnFlowers;
     @FXML
     public Button btnPlants;
+    public JFXButton btnSendEmail;
+    public Label lblClock;
+    public Label lblDashBoardName;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        lblClock.setText(LocalDate.now().toString());
         navigateTo("/View/HomePage.fxml");
     }
 

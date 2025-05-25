@@ -1,102 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.PointLight?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Sphere?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.HomePageController">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="800.0" layoutX="32.0" layoutY="23.0" opacity="0.76" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@../images/background.png" />
-         </image>
-      </ImageView>
-
-            <!-- Grid Summary Section -->
-      <GridPane hgap="30.0" layoutX="186.0" layoutY="67.0" style="-fx-background-color: null;" vgap="30.0">
+      <HBox alignment="CENTER" layoutX="300.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-
-                  <!-- Total Orders -->
-            <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #dcedc8; -fx-background-radius: 10;">
-               <children>
-                  <Label layoutX="20.0" layoutY="10.0" text="Total Orders" />
-                  <Label fx:id="lblTotalOrders" layoutX="20.0" layoutY="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="0" />
-               </children>
-            </AnchorPane>
-
-                  <!-- Customers -->
-            <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #b3e5fc; -fx-background-radius: 10;" GridPane.columnIndex="1">
-               <children>
-                  <Label layoutX="20.0" layoutY="10.0" text="Customers" />
-                  <Label fx:id="lblTotalCustomers" layoutX="20.0" layoutY="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="0" />
-               </children>
-            </AnchorPane>
-
-                  <!-- Plants Stock -->
-            <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #ffe0b2; -fx-background-radius: 10;" GridPane.rowIndex="1">
-               <children>
-                  <Label layoutX="20.0" layoutY="10.0" text="Plants in Stock" />
-                  <Label fx:id="lblPlantsStock" layoutX="20.0" layoutY="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="0" />
-               </children>
-            </AnchorPane>
-
-                  <!-- Flowers Stock -->
-            <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #f8bbd0; -fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Label layoutX="20.0" layoutY="10.0" text="Flowers in Stock" />
-                  <Label fx:id="lblFlowersStock" layoutX="20.0" layoutY="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="0" />
-               </children>
-            </AnchorPane>
-
-                  <!-- Total Sales -->
-            <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #c8e6c9; -fx-background-radius: 10;" GridPane.rowIndex="2">
-               <children>
-                  <Label layoutX="20.0" layoutY="10.0" text="Total Sales (Rs)" />
-                  <Label fx:id="lblTotalSales" layoutX="20.0" layoutY="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="0.00" />
-               </children>
-            </AnchorPane>
-
-                  <!-- Today's Orders -->
-            <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #fff9c4; -fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Label layoutX="20.0" layoutY="10.0" text="Today's Orders" />
-                  <Label fx:id="lblTodaysOrders" layoutX="20.0" layoutY="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="0" />
-               </children>
-            </AnchorPane>
-
-                  <!-- Out of Stock Items -->
-            <AnchorPane prefHeight="80.0" prefWidth="131.0" style="-fx-background-color: #ffcdd2; -fx-background-radius: 10;" GridPane.rowIndex="3">
-               <children>
-                  <Label layoutX="20.0" layoutY="10.0" text="Out of Stock Items" />
-                  <Label fx:id="lblOutOfStock" layoutX="20.0" layoutY="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="0" />
-               </children>
-            </AnchorPane>
-
-               </children>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-      </GridPane>
-
-            <!-- Title -->
-      <Label layoutX="95.0" layoutY="14.0" prefHeight="53.0" prefWidth="611.0" text="Welcome to Florist POS Dashboard">
-         <font>
-            <Font name="System Bold" size="36.0" />
-         </font>
-      </Label>
-
+            <Label alignment="CENTER" prefHeight="100.0" prefWidth="163.0" style="-fx-background-color: orange; -fx-background-radius: 20;" text="Total Sale" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="100.0" prefWidth="163.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="Income" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="100.0" prefWidth="163.0" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Profit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="100.0" prefWidth="163.0" style="-fx-background-color: green; -fx-background-radius: 20;" text="Staff" textFill="WHITE" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <BarChart layoutX="14.0" layoutY="243.0" prefHeight="243.0" prefWidth="407.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Sphere drawMode="LINE" layoutX="723.0" layoutY="184.0" radius="50" />
+      <AmbientLight color="CHARTREUSE" layoutX="267.0" layoutY="184.0" lightOn="true" />
+      <PointLight color="CHARTREUSE" layoutX="636.0" layoutY="146.0" lightOn="true" />
+   </children>
 </AnchorPane>
