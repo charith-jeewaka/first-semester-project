@@ -105,5 +105,7 @@ public class DashboardController implements Initializable {
     }
 
 
-
+    public void sendEmailOnAction(ActionEvent actionEvent) {
+        navigateTo( "/View/SendMail.fxml");
+    }
 }

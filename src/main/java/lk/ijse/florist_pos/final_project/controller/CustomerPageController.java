@@ -2,7 +2,9 @@ package lk.ijse.florist_pos.final_project.controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -10,6 +12,7 @@ import lk.ijse.florist_pos.final_project.dto.CustomerDto;
 import lk.ijse.florist_pos.final_project.dto.Tm.CustomerTM;
 import lk.ijse.florist_pos.final_project.model.CustomerModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -226,4 +229,22 @@ public class CustomerPageController implements Initializable {
         btnDelete.setDisable(false);
         btnUpdate.setDisable(false);
     }
-}
+
+    public void sendEmailOnAction(ActionEvent actionEvent) throws IOException {
+        CustomerTM selectedCustomer = tblCustomer.getSelectionModel().getSelectedItem();
+        if (selectedCustomer == null) {
+            new Alert(Alert.AlertType.ERROR, "Please select a customer.").show();
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/lk/ijse/florist_pos/final_project/view/SendEmailPage.fxml"));
+
+            Parent load = loader.load();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    }
+
