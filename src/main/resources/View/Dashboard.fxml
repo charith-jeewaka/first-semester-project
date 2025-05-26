@@ -21,7 +21,7 @@
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="610.0" prefWidth="190.0" style="-fx-background-color: linear-gradient(to bottom, #66bb6a 0%, #2e7d32 50%, #66bb6a 100%);;">
                <children>
-                  <ImageView fitHeight="152.0" fitWidth="164.0" pickOnBounds="true">
+                  <ImageView fx:id="imgDashboardUser1" fitHeight="152.0" fitWidth="164.0" pickOnBounds="true">
                      <effect>
                         <Glow />
                      </effect>
@@ -39,7 +39,7 @@
                   </Label>
                   <Label fx:id="lblCurrentUser" text="CHARITH">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font></Label>
                   <Line endX="38.5" startX="-100.0" stroke="#030303" strokeWidth="2.0" />
 
@@ -219,21 +219,22 @@
          <children>
             <AnchorPane prefHeight="68.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #66bb6a 0%, #2e7d32 50%, #66bb6a 100%);" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="lblDashBoardName" alignment="CENTER" layoutX="589.0" prefHeight="34.0" prefWidth="184.0" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Label fx:id="lblDashBoardName" alignment="CENTER" layoutX="589.0" prefHeight="34.0" prefWidth="184.0" text="charith" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblClock" alignment="CENTER" contentDisplay="CENTER" layoutX="687.0" layoutY="36.0" prefHeight="34.0" prefWidth="184.0" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="lblClock" alignment="CENTER" contentDisplay="CENTER" layoutX="687.0" layoutY="36.0" prefHeight="34.0" prefWidth="184.0" text="2025" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="14.0" layoutY="8.0" prefHeight="53.0" prefWidth="272.0" text="FLORIST POS">
+                  <Label alignment="CENTER" layoutX="251.0" layoutY="8.0" prefHeight="53.0" prefWidth="272.0" text="FLORIST POS">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="imgDashboardUser2" fitHeight="62.0" fitWidth="69.0" layoutX="520.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="184.0" />
                </children>
             </AnchorPane>
          </children>

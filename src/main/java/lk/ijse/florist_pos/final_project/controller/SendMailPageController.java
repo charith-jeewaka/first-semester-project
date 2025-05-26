@@ -1,7 +1,10 @@
 package lk.ijse.florist_pos.final_project.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -16,29 +19,66 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import lk.ijse.florist_pos.final_project.dto.SentEmailDto;
+import lk.ijse.florist_pos.final_project.dto.SupplierDto;
+import lk.ijse.florist_pos.final_project.model.SentEmailModel;
+import lk.ijse.florist_pos.final_project.model.SupplierModel;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 
 public class SendMailPageController {
 
     @FXML
+    public JFXComboBox<String> cmbTemplates;
+    @FXML
+    public JFXComboBox<String> cmbSubject;
+    @FXML
+    public JFXComboBox<String> cmbSupplierEmail;
+    @FXML
+    public JFXButton btnClear;
+    @FXML
     private JFXButton btnSend;
-
     @FXML
     private TextArea txaBody;
-
     @FXML
     private TextField txtSubject;
-
     @FXML
     private TextField txtTo;
-
     @FXML
     private ProgressIndicator stkLoadingEffect;
 
-    @FXML
+    public ObservableList<String> sampleSubjects = FXCollections.observableArrayList(
+            "Request Supply","Thank You for Timely Delivery","Notice of Price Adjustment","Request for Quotation"
+            ,"Request for Product Samples","Invitation to Supplier Meeting","Updated Terms and Conditions"
+    );
+
     public void initialize() {
         stkLoadingEffect.setVisible(false); // Hide spinner initially
+
+        try {
+            List<String> emails = SupplierModel.getAllSupplierEmails();
+            cmbSupplierEmail.setItems(FXCollections.observableArrayList(emails));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        cmbSupplierEmail.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                txtTo.setText(newValue);
+            }
+        });
+
+        cmbSubject.setItems(sampleSubjects);
+
+        cmbSubject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                txtSubject.setText(newValue.toString());
+                txaBody.setText(getTemplateForSubject(newValue.toString()));
+            }
+        });
+
     }
 
     public void btnSendOnAction(ActionEvent actionEvent) {
@@ -81,6 +121,14 @@ public class SendMailPageController {
                     alert.setTitle("Email Sent");
                     alert.setHeaderText(null);
                     alert.setContentText("The email has been sent successfully.");
+                    SentEmailDto emailDTO = new SentEmailDto(
+                            txtTo.getText(),
+                            txtSubject.getText(),
+                            txaBody.getText(),
+                            null
+
+                    );
+                    SentEmailModel.saveEmail(emailDTO);
                     alert.showAndWait();
 
                     txtSubject.clear();
@@ -110,5 +158,120 @@ public class SendMailPageController {
 
     public void setEmail(String email) {
         txtTo.setText(email);
+    }
+
+    private String getTemplateForSubject(String subject) {
+        return switch (subject) {
+            case "Request Supply" -> """
+            Dear [Supplier Name],
+
+            We kindly request the supply of the following items:
+
+            - Item Name: [Insert Item]
+            - Quantity: [Insert Quantity]
+
+            Kindly confirm availability and expected delivery time.
+
+            Best regards,
+            [Your Name]
+            [Your Company Name]
+            """;
+
+            case "Thank You for Timely Delivery" -> """
+            Dear [Supplier Name],
+
+            We appreciate your prompt and timely delivery of our recent order.
+
+            Your consistent service is highly valued.
+
+            Thank you once again.
+
+            Sincerely,
+            [Your Name]
+            [Your Company Name]
+            """;
+
+            case "Notice of Price Adjustment" -> """
+            Dear [Supplier Name],
+
+            Please note that there has been a recent adjustment in pricing due to market changes.
+
+            Attached you’ll find the updated price list.
+
+            Thank you for your understanding.
+
+            Best regards,
+            [Your Name]
+            [Your Company Name]
+            """;
+
+            case "Request for Quotation" -> """
+            Dear [Supplier Name],
+
+            We are currently preparing to place an order and would appreciate a quotation for the following:
+
+            - Item: [Insert Item]
+            - Quantity: [Insert Quantity]
+
+            Please include your best prices, payment terms, and delivery timeline.
+
+            Regards,
+            [Your Name]
+            [Your Company Name]
+            """;
+
+            case "Request for Product Samples" -> """
+            Dear [Supplier Name],
+
+            We are interested in evaluating your products and would like to request the following samples:
+
+            - Product: [Insert Product]
+
+            Kindly advise if there are any costs involved.
+
+            Best regards,
+            [Your Name]
+            [Your Company Name]
+            """;
+
+            case "Invitation to Supplier Meeting" -> """
+            Dear [Supplier Name],
+
+            You are invited to attend a supplier meeting on:
+
+            - Date: [Insert Date]
+            - Time: [Insert Time]
+            - Location: [Insert Location or Zoom Link]
+
+            The agenda will include upcoming requirements and collaboration goals.
+
+            Kindly confirm your participation.
+
+            Best regards,
+            [Your Name]
+            [Your Company Name]
+            """;
+
+            case "Updated Terms and Conditions" -> """
+            Dear [Supplier Name],
+
+            Please find attached the updated terms and conditions applicable from [Effective Date].
+
+            Kindly review and acknowledge your acceptance.
+
+            Thank you.
+
+            Best regards,
+            [Your Name]
+            [Your Company Name]
+            """;
+
+            default -> "";
+        };
+    }
+
+
+    public void clearTxaOnAction(ActionEvent actionEvent) {
+        txaBody.clear();
     }
 }

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextArea?>
@@ -8,36 +10,80 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="380.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.SendMailPageController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.SendMailPageController">
    <children>
-      <HBox layoutY="11.0">
+      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="299.0" prefWidth="600.0">
+            <AnchorPane prefHeight="343.0" prefWidth="600.0" style="-fx-background-color: #7bed9f;" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField fx:id="txtTo" layoutX="25.0" layoutY="60.0" prefHeight="25.0" prefWidth="550.0" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
-                  <TextField fx:id="txtSubject" layoutX="25.0" layoutY="108.0" prefHeight="25.0" prefWidth="550.0" style="-fx-background-radius: 30;" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
-                  <TextArea fx:id="txaBody" layoutX="25.0" layoutY="161.0" prefHeight="182.0" prefWidth="550.0" style="-fx-background-radius: 30; -fx-border-radius: 30;" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="161.0" />
-                  <Label alignment="CENTER" layoutX="173.0" layoutY="14.0" prefHeight="36.0" prefWidth="255.0" text="Send Mail" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="172.0">
+                  <HBox layoutX="25.0" layoutY="72.0" prefHeight="36.0" prefWidth="750.0" spacing="20.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                     <children>
+                        <TextField fx:id="txtTo" prefHeight="40.0" prefWidth="427.0" promptText="To@gmail.com" style="-fx-background-radius: 20;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <JFXComboBox fx:id="cmbSupplierEmail" focusColor="#385097" labelFloat="true" prefHeight="50.0" prefWidth="313.0" promptText="Supplier E-Mail" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="26.0" layoutY="141.0" prefHeight="36.0" prefWidth="750.0" spacing="20.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="24.0">
+                     <children>
+                        <TextField fx:id="txtSubject" prefHeight="39.0" prefWidth="429.0" promptText="Subject" style="-fx-background-radius: 30;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <JFXComboBox fx:id="cmbSubject" focusColor="#0339da" labelFloat="true" prefHeight="41.0" prefWidth="155.0" promptText="Subject" HBox.hgrow="ALWAYS" />
+                        <JFXComboBox fx:id="cmbTemplates" labelFloat="true" prefHeight="53.0" prefWidth="134.0" promptText="Templates" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="25.0" layoutY="217.0" prefHeight="213.0" prefWidth="750.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="217.0">
+                     <children>
+                        <TextArea fx:id="txaBody" prefHeight="230.0" prefWidth="750.0" promptText="Thank You for Timely Delivery" style="-fx-background-radius: 30; -fx-border-radius: 30;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="174.0" prefHeight="53.0" prefWidth="455.0" text="SUPPLIER E-MAIL" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="171.0">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="0.5876777251184835" startX="1.0" startY="0.43601895734597157">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.11300666630268097" green="0.4399999976158142" blue="0.03959999978542328" opacity="0.9122137427330017" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="53.0" prefHeight="23.0" prefWidth="42.0" text="To">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="25.0" layoutY="42.0" text="To">
+                  <Label layoutX="27.0" layoutY="118.0" prefHeight="23.0" prefWidth="67.0" text="Subject">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="25.0" layoutY="91.0" text="Subject">
+                  <Label layoutX="25.0" layoutY="195.0" prefHeight="23.0" prefWidth="61.0" text="Body">
                      <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="25.0" layoutY="144.0" text="Body">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <StackPane layoutX="275.0" layoutY="177.0" prefHeight="46.0" prefWidth="52.0" AnchorPane.bottomAnchor="177.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="177.0">
@@ -45,7 +91,26 @@
                         <ProgressIndicator fx:id="stkLoadingEffect" style="-fx-background-color: null;" StackPane.alignment="CENTER" />
                      </children>
                   </StackPane>
-                  <JFXButton fx:id="btnSend" buttonType="RAISED" layoutX="241.0" layoutY="353.0" onAction="#btnSendOnAction" prefHeight="36.0" prefWidth="116.0" text="Send" />
+                  <HBox alignment="CENTER" layoutY="439.0" prefHeight="71.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <JFXButton fx:id="btnSend" buttonType="RAISED" onAction="#btnSendOnAction" prefHeight="39.0" prefWidth="129.0" ripplerFill="#06a10b" style="-fx-background-color: #a4b0be;" text="Send">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+                  <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="742.0" layoutY="193.0" onAction="#clearTxaOnAction" prefHeight="23.0" prefWidth="33.0" style="-fx-background-color: #ff4757;" text="X" textFill="WHITE" AnchorPane.rightAnchor="25.0">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </AnchorPane>
          </children>

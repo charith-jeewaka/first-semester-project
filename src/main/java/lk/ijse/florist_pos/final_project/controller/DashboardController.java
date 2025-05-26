@@ -1,6 +1,9 @@
 package lk.ijse.florist_pos.final_project.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,13 +14,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -44,15 +52,23 @@ public class DashboardController implements Initializable {
     public Button btnFlowers;
     @FXML
     public Button btnPlants;
+    @FXML
     public JFXButton btnSendEmail;
+    @FXML
     public Label lblClock;
+    @FXML
     public Label lblDashBoardName;
+    @FXML
+    public ImageView imgDashboardUser2;
+    @FXML
+    public ImageView imgDashboardUser1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-        lblClock.setText(LocalDate.now().toString());
+        startClock();
         navigateTo("/View/HomePage.fxml");
+        Image image = imgDashboardUser1.getImage();
+        imgDashboardUser2.setImage(image);
     }
 
     public void logoutonAction(ActionEvent actionEvent) throws IOException {
@@ -95,6 +111,9 @@ public class DashboardController implements Initializable {
         navigateTo("/View/ItemWastePage.fxml");
     }
 
+    public void sendEmailOnAction(ActionEvent actionEvent) {
+        navigateTo( "/View/SendMail.fxml");
+    }
 
     private void navigateTo(String path) {
         try {
@@ -113,7 +132,13 @@ public class DashboardController implements Initializable {
     }
 
 
-    public void sendEmailOnAction(ActionEvent actionEvent) {
-        navigateTo( "/View/SendMail.fxml");
+    private void startClock() {
+        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), e -> {
+            LocalTime currentTime = LocalTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            lblClock.setText(currentTime.format(formatter));
+        }));
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
     }
 }
