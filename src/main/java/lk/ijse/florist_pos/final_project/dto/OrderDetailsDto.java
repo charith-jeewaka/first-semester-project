@@ -17,7 +17,7 @@ public class OrderDetailsDto {
     private String itemQty;
     private String totalAmount;
     private String handleBy;
-    private String orderDate;
+
     private String totalBill;
 }
 

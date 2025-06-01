@@ -125,7 +125,7 @@ public class OrderPageController implements Initializable {
         int qtyOnHand = Integer.parseInt(qtyOnHandText);
 
         if (qty > qtyOnHand) {
-            new Alert(Alert.AlertType.ERROR, "Quantity is greater than available stock").show();
+            new Alert(Alert.AlertType.ERROR, "Not Enough Stock").show();
             return;
         }
 
@@ -140,7 +140,7 @@ public class OrderPageController implements Initializable {
             existingItem.setCartQty(existingItem.getCartQty() + qty);
             existingItem.setTotal(existingItem.getCartQty() * unitPrice);
         } else {
-            JFXButton btnRemove = new JFXButton("Remove");
+            JFXButton btnRemove = new JFXButton("REMOVE");
             CartTm cartTm = new CartTm(itemId, itemName, qty, unitPrice, totalAmount, customerName, btnRemove);
 
             btnRemove.setOnAction(e -> {
@@ -193,7 +193,6 @@ public class OrderPageController implements Initializable {
         String orderId = lblOrderId.getText();
         String selectedPaymentType = ((JFXRadioButton) paymentType.getSelectedToggle()).getText();
         String handledBy = "admin";
-        String orderDate = lblOrderDate.getText();
         String totalBill = lblTotalBill.getText();
 
         ObservableList<CartTm> cartList = tblCart.getItems();
@@ -209,7 +208,6 @@ public class OrderPageController implements Initializable {
                     String.valueOf(cartItem.getCartQty()),
                     String.valueOf(cartItem.getTotal()),
                     handledBy,
-                    orderDate,
                     totalBill
             );
             orderDetailsList.add(dto);

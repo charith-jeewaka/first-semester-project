@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXBadge?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,7 +24,7 @@
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="578.0" prefWidth="202.0" stylesheets="@../CssStyles/VBoxGradient.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <VBox alignment="TOP_CENTER" prefHeight="610.0" prefWidth="190.0" style="-fx-background-color: linear-gradient(to bottom, #66bb6a 0%, #2e7d32 50%, #66bb6a 100%);;">
+            <VBox alignment="TOP_CENTER" prefHeight="610.0" prefWidth="188.0" style="-fx-background-color: linear-gradient(to bottom, #004d40 0%, #00332c 50%, #004d40 100%);">
                <children>
                   <ImageView fx:id="imgDashboardUser1" fitHeight="152.0" fitWidth="164.0" pickOnBounds="true">
                      <effect>
@@ -35,16 +37,16 @@
                         <Image url="@../images/user.png" />
                      </image>
                   </ImageView>
-                  <Label text="WELCOME" textFill="#0d0d0d">
+                  <Label text="WELCOME" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblCurrentUser" text="CHARITH">
+                  <Label fx:id="lblCurrentUser" text="CHARITH" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Label>
-                  <Line endX="38.5" startX="-100.0" stroke="#030303" strokeWidth="2.0" />
+                  <Line endX="38.5" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <VBox.margin>
@@ -77,6 +79,17 @@
                                  </stops>
                               </LinearGradient>
                            </ripplerFill>
+                           <graphic>
+                              <JFXBadge prefHeight="0.0" prefWidth="16.0">
+                                 <children>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/home.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </HBox>
@@ -90,6 +103,17 @@
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" top="10.0" />
                            </HBox.margin>
+                           <graphic>
+                              <JFXBadge prefHeight="16.0" prefWidth="16.0">
+                                 <children>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/customer.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </HBox>
@@ -103,6 +127,13 @@
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" top="10.0" />
                            </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/plant.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </HBox>
@@ -116,6 +147,13 @@
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" top="10.0" />
                            </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/flower.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </HBox>
@@ -129,6 +167,13 @@
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" top="10.0" />
                            </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/order.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </HBox>
@@ -142,6 +187,13 @@
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" top="10.0" />
                            </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/waste.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </HBox>
@@ -156,6 +208,13 @@
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" top="10.0" />
                            </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/mail.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </HBox>
@@ -168,56 +227,59 @@
                            </font>
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" top="10.0" />
-                           </HBox.margin>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-
-                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-                     <children>
-                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="REPORTS">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" top="10.0" />
-                           </HBox.margin>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-
-                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-                     <children>
-                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="REPORTS">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" top="10.0" />
-                           </HBox.margin>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-
-                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-                     <children>
-                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: #bdc3c7;" text="REPORTS">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="10.0" />
                            </HBox.margin>
                            <graphic>
-                              <HBox>
-                                 <children>
-                                    <JFXButton fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutonAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: RED;" text="LOG OUT" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </JFXButton>
-                                 </children>
-                              </HBox>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/reports.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+
+                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="REPORTS">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+
+                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="REPORTS">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+
+                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                     <children>
+                        <JFXButton fx:id="btnLogout" buttonType="RAISED" mnemonicParsing="false" onAction="#logoutonAction" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="LOG OUT">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="5.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/logout.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </JFXButton>
                      </children>
@@ -233,27 +295,44 @@
       <AnchorPane fx:id="ancDashboardContent" layoutX="188.0" layoutY="68.0" prefHeight="510.0" prefWidth="773.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
          <effect>
             <ColorAdjust />
-         </effect></AnchorPane>
+         </effect>
+         <children>
+            <JFXBadge layoutX="231.0" layoutY="163.0" prefHeight="16.0" prefWidth="16.0" />
+            <JFXBadge layoutX="247.0" layoutY="223.0" prefHeight="16.0" prefWidth="16.0" />
+            <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="529.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/reports.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
       <HBox layoutX="188.0" prefHeight="68.0" prefWidth="773.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="68.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #66bb6a 0%, #2e7d32 50%, #66bb6a 100%);" HBox.hgrow="ALWAYS">
+            <AnchorPane prefHeight="68.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="lblDashBoardName" alignment="CENTER" layoutX="589.0" prefHeight="34.0" prefWidth="184.0" text="charith" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Label fx:id="lblDashBoardName" alignment="CENTER" layoutX="497.0" layoutY="3.0" prefHeight="34.0" prefWidth="153.0" text="Charith jeewaka" textFill="WHITE" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="3.0">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblClock" alignment="CENTER" contentDisplay="CENTER" layoutX="687.0" layoutY="36.0" prefHeight="34.0" prefWidth="184.0" text="2025" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="lblClock" alignment="CENTER" contentDisplay="CENTER" layoutX="497.0" layoutY="34.0" prefHeight="34.0" prefWidth="153.0" text="10:30:25" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="69.0">
                      <font>
-                        <Font name="Arial Bold" size="14.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="251.0" layoutY="8.0" prefHeight="53.0" prefWidth="272.0" text="FLORIST POS">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="8.0" prefHeight="53.0" prefWidth="272.0" text="FLORIST POS" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
+                     <effect>
+                        <DropShadow height="255.0" radius="127.0" spread="0.34" width="255.0" />
+                     </effect>
                   </Label>
-                  <ImageView fx:id="imgDashboardUser2" fitHeight="62.0" fitWidth="69.0" layoutX="520.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="184.0" />
+                  <ImageView fx:id="imgDashboardUser2" fitHeight="68.0" fitWidth="69.0" layoutX="698.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" />
+                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="483.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="230.0">
+                     <image>
+                        <Image url="@../images/time.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>

@@ -19,6 +19,7 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.florist_pos.final_project.dto.SentEmailDto;
 import lk.ijse.florist_pos.final_project.dto.SupplierDto;
@@ -46,6 +47,7 @@ public class SendMailPageController {
     public AnchorPane ancMailSend;
     @FXML
     public JFXButton btnHistory;
+    public ImageView imageview;
     @FXML
     private JFXButton btnSend;
     @FXML
@@ -65,6 +67,9 @@ public class SendMailPageController {
     );
 
     public void initialize() {
+        imageview.fitWidthProperty().bind(ancMailSend.widthProperty());
+        imageview.fitHeightProperty().bind(ancMailSend.heightProperty());
+
         stkLoadingEffect.setVisible(false);
 
         ancMailSend.setOnKeyPressed(event -> {

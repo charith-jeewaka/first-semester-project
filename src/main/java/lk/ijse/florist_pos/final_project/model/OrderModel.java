@@ -62,8 +62,8 @@ public class OrderModel {
             connection.setAutoCommit(false); // Start transaction
 
             // 1. Insert orders
-            String orderSql = "INSERT INTO orders (order_id, customer_name, item_name, item_id, payment_type, item_qty, total_amount, handled_by, total_bill, order_date) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String orderSql = "INSERT INTO orders (order_id, customer_name, item_name, item_id, payment_type, item_qty, total_amount, handled_by, total_bill) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement orderPstm = connection.prepareStatement(orderSql);
 
             for (OrderDetailsDto dto : orderDetailsList) {
@@ -76,7 +76,7 @@ public class OrderModel {
                 orderPstm.setString(7, dto.getTotalAmount());
                 orderPstm.setString(8, dto.getHandleBy());
                 orderPstm.setString(9, dto.getTotalBill());
-                orderPstm.setString(10, dto.getOrderDate());
+
 
                 orderPstm.addBatch();
 

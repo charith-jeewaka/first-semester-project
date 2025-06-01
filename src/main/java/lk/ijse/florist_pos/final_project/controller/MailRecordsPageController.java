@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -28,9 +30,13 @@ public class MailRecordsPageController implements Initializable {
     public TableColumn<SentEmailsTM, String> colSentAt;
     public TableColumn<SentEmailsTM, JFXButton> colMailView;
     public TableColumn<SentEmailsTM, JFXButton> colMailDelete;
+    public AnchorPane ancMailLog;
+    public ImageView imageView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageView.fitWidthProperty().bind(ancMailLog.widthProperty());
+        imageView.fitHeightProperty().bind(ancMailLog.heightProperty());
         setCellValues();
         loadAllEmails();
     }
