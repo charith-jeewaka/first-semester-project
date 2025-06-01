@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #7bed9f;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.MailRecordsPageController">
+   <children>
+      <TableView fx:id="tblMailLog" layoutX="194.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CssStyles/table1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+        <columns>
+          <TableColumn fx:id="colRecipientMail" prefWidth="155.0" text="Recipients E-Mail" />
+            <TableColumn fx:id="colSubject" prefWidth="122.0" text="Subject" />
+            <TableColumn fx:id="colBody" prefWidth="141.0" text="Body" />
+            <TableColumn fx:id="colSentAt" prefWidth="110.0" text="Sent At" />
+            <TableColumn fx:id="colMailView" prefWidth="75.0" text="View" />
+            <TableColumn fx:id="colMailDelete" prefWidth="75.0" text="Delete" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label alignment="CENTER" layoutX="160.0" layoutY="4.0" prefHeight="52.0" prefWidth="280.0" text="Mail Log" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.048245612531900406" green="0.4736842215061188" blue="0.17587719857692719" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.17105263471603394" green="0.13462474942207336" blue="0.13462474942207336" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>

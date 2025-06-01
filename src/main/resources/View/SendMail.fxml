@@ -15,7 +15,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.SendMailPageController">
+<AnchorPane fx:id="ancMailSend" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.SendMailPageController">
    <children>
       <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -111,6 +111,7 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton fx:id="btnHistory" layoutX="683.0" layoutY="193.0" onAction="#emailHistoryOnAction" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #a4b0be;" text="history" AnchorPane.rightAnchor="65.0" />
                </children>
             </AnchorPane>
          </children>

@@ -7,10 +7,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
@@ -19,13 +19,17 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.florist_pos.final_project.dto.SentEmailDto;
 import lk.ijse.florist_pos.final_project.dto.SupplierDto;
 import lk.ijse.florist_pos.final_project.model.SentEmailModel;
 import lk.ijse.florist_pos.final_project.model.SupplierModel;
+import lk.ijse.florist_pos.final_project.util.MailConfigLoader;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 public class SendMailPageController {
@@ -39,6 +43,10 @@ public class SendMailPageController {
     @FXML
     public JFXButton btnClear;
     @FXML
+    public AnchorPane ancMailSend;
+    @FXML
+    public JFXButton btnHistory;
+    @FXML
     private JFXButton btnSend;
     @FXML
     private TextArea txaBody;
@@ -49,13 +57,22 @@ public class SendMailPageController {
     @FXML
     private ProgressIndicator stkLoadingEffect;
 
+    public DashboardController dashboardController;
+
     public ObservableList<String> sampleSubjects = FXCollections.observableArrayList(
             "Request Supply","Thank You for Timely Delivery","Notice of Price Adjustment","Request for Quotation"
             ,"Request for Product Samples","Invitation to Supplier Meeting","Updated Terms and Conditions"
     );
 
     public void initialize() {
-        stkLoadingEffect.setVisible(false); // Hide spinner initially
+        stkLoadingEffect.setVisible(false);
+
+        ancMailSend.setOnKeyPressed(event -> {
+            if (event.getCode() == javafx.scene.input.KeyCode.ENTER) {
+                btnSend.fire();
+                event.consume();
+            }
+        });
 
         try {
             List<String> emails = SupplierModel.getAllSupplierEmails();
@@ -82,6 +99,12 @@ public class SendMailPageController {
     }
 
     public void btnSendOnAction(ActionEvent actionEvent) {
+
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to send this email?");
+        Optional<ButtonType> result = confirmation.showAndWait();
+        if (result.isEmpty() || result.get() != ButtonType.OK) {
+            return;
+        }
         // Show spinner
         stkLoadingEffect.setVisible(true);
         btnSend.setDisable(true); // Optional: disable send button while sending
@@ -89,8 +112,8 @@ public class SendMailPageController {
         // Run sending in a background thread to avoid freezing UI
         new Thread(() -> {
             try {
-                String fromEmail = "wickramasinghajeewaka@gmail.com";
-                String password = "oddl ulsr ttva krqw"; // Your app password here
+                String fromEmail = MailConfigLoader.getEmail();
+                String password = MailConfigLoader.getPassword();
 
                 Properties props = new Properties();
                 props.put("mail.smtp.host", "smtp.gmail.com");
@@ -273,5 +296,22 @@ public class SendMailPageController {
 
     public void clearTxaOnAction(ActionEvent actionEvent) {
         txaBody.clear();
+    }
+
+    public void emailHistoryOnAction(ActionEvent actionEvent) throws IOException {
+
+        try {
+            ancMailSend.getChildren().clear();
+
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/View/MailRecords.fxml"));
+
+            anchorPane.prefWidthProperty().bind(ancMailSend.widthProperty());
+            anchorPane.prefHeightProperty().bind(ancMailSend.heightProperty());
+
+            ancMailSend.getChildren().add(anchorPane);
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+        }
+
     }
 }

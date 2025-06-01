@@ -101,6 +101,12 @@ public class OrderModel {
 
             int[] orderResult = orderPstm.executeBatch();
 
+            // Insert order summary
+            if (!insertOrderSummary()) {
+                connection.rollback();
+                return false;
+            }
+
             connection.commit();
             isSuccess = true;
 
@@ -114,6 +120,28 @@ public class OrderModel {
         return isSuccess;
     }
 
+    public static boolean insertOrderSummary() throws SQLException {
+        String sql = """
+            INSERT INTO order_item_details (order_id, customer_name, total_bill, handled_by, order_date)
+            SELECT 
+                o1.order_id,
+                o1.customer_name,
+                o1.total_bill,
+                o1.handled_by,
+                o1.order_date
+            FROM orders o1
+            WHERE NOT EXISTS (
+                SELECT 1 
+                FROM order_item_details od 
+                WHERE od.order_id = o1.order_id
+            )
+            AND o1.single_order_id = (
+                SELECT MIN(o2.single_order_id)
+                FROM orders o2
+                WHERE o2.order_id = o1.order_id
+            )
+        """;
 
-
+        return CrudUtil.execute(sql);
+    }
 }

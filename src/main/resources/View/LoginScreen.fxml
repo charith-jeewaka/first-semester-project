@@ -21,14 +21,17 @@
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="297.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutX="16.0" layoutY="101.0" prefHeight="25.0" prefWidth="249.0" AnchorPane.leftAnchor="16.0">
+            <HBox layoutX="16.0" layoutY="93.0" prefHeight="25.0" prefWidth="249.0" AnchorPane.leftAnchor="16.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="89.0" text="USERNAME" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="159.0" promptText="USERNAME" style="-fx-background-color: null; -fx-border-width: 0 0 1px 0; -fx-border-color: #1abc9c;" />
+                  <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="159.0" promptText="USERNAME" style="-fx-background-color: null; -fx-border-width: 0 0 1px 0; -fx-border-color: #1abc9c;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <Label layoutX="66.0" layoutY="21.0" text="SECURE LOGIN" textFill="#4d4141">
@@ -36,14 +39,17 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <HBox layoutX="15.0" layoutY="166.0" prefHeight="28.0" prefWidth="250.0" AnchorPane.leftAnchor="15.0">
+            <HBox layoutX="15.0" layoutY="162.0" prefHeight="28.0" prefWidth="250.0" AnchorPane.leftAnchor="15.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="89.0" text="PASSWORD" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="159.0" promptText="PASSWORD" style="-fx-background-color: null; -fx-border-color: #1abc9c; -fx-border-width: 0 0 1px 0;" />
+                  <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="159.0" promptText="PASSWORD" style="-fx-background-color: null; -fx-border-color: #1abc9c; -fx-border-width: 0 0 1px 0;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></PasswordField>
                </children>
             </HBox>
             <Button fx:id="btnCancel" layoutX="41.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #EA2027;" text="CANCEL" textFill="WHITE">

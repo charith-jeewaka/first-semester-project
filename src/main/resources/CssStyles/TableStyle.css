@@ -21,21 +21,21 @@
 }
 
 .table-view .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #ff1d1d;
     -fx-font-weight: bold;
 }
 
 .table-row-cell {
-    -fx-background-color: white;
-    -fx-border-color: transparent transparent #eeeeee transparent;
+    -fx-background-color: #290404;
+    -fx-border-color: transparent transparent #a2e387 transparent;
 }
 
 .table-row-cell:hover {
-    -fx-background-color: #E3F2FD;
+    -fx-background-color: #1f2125;
 }
 
 .table-row-cell:filled:selected, .table-row-cell:filled:selected:hover {
-    -fx-background-color: #BBDEFB;
+    -fx-background-color: #45a9ff;
     -fx-text-fill: black;
 }
 

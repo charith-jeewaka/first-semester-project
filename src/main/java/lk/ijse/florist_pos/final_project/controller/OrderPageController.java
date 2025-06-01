@@ -55,7 +55,6 @@ public class OrderPageController implements Initializable {
     public JFXRadioButton rbtnCard;
     public JFXRadioButton rbtnCash;
     public ToggleGroup paymentType = new ToggleGroup();
-    private DashboardController dashboardController = new DashboardController();
 
 
 
@@ -220,6 +219,7 @@ public class OrderPageController implements Initializable {
 
         if (isPlaced) {
             new Alert(Alert.AlertType.INFORMATION, "Order placed successfully").show();
+
             resetPage();
         } else {
             new Alert(Alert.AlertType.ERROR, "Something went wrong while placing the order.").show();

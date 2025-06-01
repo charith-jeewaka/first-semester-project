@@ -59,7 +59,11 @@ public class LoginScreenController implements Initializable {
 
 
     public void clearText() {
-        txtPassword.clear();
+        try {
+            txtPassword.clear();
+        } catch (Exception e) {
+            System.out.println("hi");
+        }
     }
 
     public void forgetPasswordOnAction(ActionEvent actionEvent) {
