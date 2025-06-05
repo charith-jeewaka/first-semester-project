@@ -3,6 +3,7 @@ package lk.ijse.florist_pos.final_project.model;
 import lk.ijse.florist_pos.final_project.dto.CustomerDto;
 import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -88,6 +89,8 @@ public class CustomerModel {
             return null; // No matching customer
         }
     }
+
+
 
 
 

@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.florist_pos.final_project.dto.FlowerWasteDto;
 import lk.ijse.florist_pos.final_project.dto.Tm.FlowerWasteTm;
 import lk.ijse.florist_pos.final_project.model.FlowerWasteModel;
@@ -25,11 +27,15 @@ public class ItemWastePageController implements Initializable {
     public TableColumn colReason;
     public TableColumn colWasteDate;
     public TableView tblFWaste;
+    public ImageView imageView;
+    public AnchorPane ancWaste;
 
     FlowerWasteModel flowerWasteModel = new FlowerWasteModel();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageView.fitWidthProperty().bind(ancWaste.widthProperty());
+        imageView.fitHeightProperty().bind(ancWaste.heightProperty());
         setCellValues();
         try {
             resetPage();

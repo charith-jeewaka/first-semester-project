@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXBadge?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
@@ -7,91 +8,204 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancFlower" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.FlowerPageController">
+<AnchorPane fx:id="ancFlower" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.FlowerPageController">
    <children>
-      <AnchorPane fx:id="ancPlant" layoutY="7.0" prefHeight="500.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutX="291.0" layoutY="24.0" prefHeight="182.0" prefWidth="744.0" AnchorPane.bottomAnchor="294.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0" />
-            <VBox layoutX="10.0" layoutY="2.0" prefHeight="191.0" prefWidth="744.0" spacing="10.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="744.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/bground.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="10.0" layoutY="49.0" prefHeight="229.0" prefWidth="754.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="49.0">
                <children>
-                  <HBox prefHeight="36.0" prefWidth="724.0">
+                  <VBox layoutX="1.0" layoutY="1.0" prefHeight="227.0" prefWidth="79.0">
                      <children>
-                        <Label prefHeight="46.0" prefWidth="125.0" text="Flower Id">
+                        <Label prefHeight="34.0" prefWidth="80.0" text="Name" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="5.0" top="13.0" />
+                           </VBox.margin>
                            <font>
-                              <Font name="Calibri Bold" size="14.0" />
+                              <Font name="Arial" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblFlowerId" prefHeight="33.0" prefWidth="66.0" text="1" HBox.hgrow="ALWAYS">
+                        <Label prefHeight="34.0" prefWidth="80.0" text="Catagory" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="Arial" size="16.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="19.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="34.0" prefWidth="80.0" text="Price" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="19.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="34.0" prefWidth="80.0" text="Quantity" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="19.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
-                  </HBox>
-                  <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="13.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
+                  </VBox>
+                  <HBox layoutX="95.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="37.0" prefWidth="406.0" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="14.0">
                      <children>
-                        <Label prefHeight="33.0" prefWidth="150.0" text="Flower Name">
+                        <TextField fx:id="txtFlowerName" prefHeight="37.0" prefWidth="400.0" promptText="Lavender" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri Bold" size="14.0" />
+                              <Font name="Arial" size="16.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="txtFlowerName" prefHeight="31.0" prefWidth="450.0" promptText="Lavender" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                        <JFXComboBox fx:id="cmbFlowerName" labelFloat="true" prefHeight="25.0" prefWidth="126.0" promptText="Flower Name" style="-fx-background-color: #7f8fa6;" />
+                        </TextField>
+                        <JFXComboBox fx:id="cmbFlowerName" labelFloat="true" prefHeight="37.0" prefWidth="80.0" promptText="Name" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
-                  <HBox layoutX="10.0" layoutY="110.0" prefHeight="7.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
+                  <HBox layoutX="97.0" layoutY="176.0" prefHeight="34.0" prefWidth="404.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="253.0">
                      <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Flower Category">
+                        <TextField fx:id="txtFlowerQty" prefHeight="34.0" prefWidth="400.0" promptText="15" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri Bold" size="14.0" />
+                              <Font name="Arial" size="16.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="txtFlowerCategory" prefHeight="49.0" prefWidth="449.0" promptText="boquet" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                        <JFXComboBox fx:id="cmbFlowerCategory" prefHeight="25.0" prefWidth="126.0" promptText="Flower Category" style="-fx-background-color: #7f8fa6;" />
+                        </TextField>
+                        <JFXComboBox fx:id="cmbFlowerQty" prefHeight="34.0" prefWidth="80.0" promptText="Quantity" HBox.hgrow="ALWAYS" />
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                   </HBox>
-                  <HBox layoutX="10.0" layoutY="143.0" prefHeight="5.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
+                  <HBox layoutX="514.0" layoutY="12.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="119.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="11.0">
                      <children>
-                        <Label prefHeight="33.0" prefWidth="150.0" text="FlowerPrice">
+                        <JFXButton fx:id="btnSaveFlower" buttonType="RAISED" onAction="#flowerSaveOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri Bold" size="14.0" />
+                              <Font name="System Bold" size="12.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="txtFlowerPrice" prefHeight="45.0" prefWidth="450.0" promptText="1750" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                        <JFXComboBox fx:id="cmbFlowerPrice" prefHeight="25.0" prefWidth="126.0" promptText="Flower Price (RS)" style="-fx-background-color: #7f8fa6;" />
+                           <graphic>
+                              <JFXBadge prefHeight="78.0" prefWidth="88.0">
+                                 <children>
+                                    <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/savew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="49.0" prefWidth="724.0">
+                  <HBox layoutX="587.0" layoutY="65.0" />
+                  <HBox layoutX="523.0" layoutY="13.0" prefHeight="98.0" prefWidth="100.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="12.0">
                      <children>
-                        <Label prefHeight="33.0" prefWidth="150.0" text="Flower Qty">
+                        <JFXButton fx:id="btnDeleteFlower" buttonType="RAISED" onAction="#deleteFlowerOnAction" prefHeight="97.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-cursor: hand;" text="Delete" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri Bold" size="14.0" />
+                              <Font name="System Bold" size="12.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="txtFlowerQty" prefHeight="26.0" prefWidth="437.0" promptText="15" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                        <JFXComboBox fx:id="cmbFlowerQty" prefHeight="25.0" prefWidth="126.0" promptText="Flower Qty" style="-fx-background-color: #7f8fa6;" />
+                           <graphic>
+                              <JFXBadge prefHeight="80.0" prefWidth="87.0">
+                                 <children>
+                                    <ImageView fitHeight="53.0" fitWidth="49.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/deletew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="522.0" layoutY="119.0" prefHeight="97.0" prefWidth="100.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="129.0">
+                     <children>
+                        <JFXButton fx:id="btnUpdateFlower" buttonType="RAISED" onAction="#updateFlowerOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="76.0" prefWidth="88.0">
+                                 <children>
+                                    <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/updatew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="642.0" layoutY="122.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0">
+                     <children>
+                        <JFXButton fx:id="btnResetFlower" buttonType="RAISED" onAction="#flowerPageResetOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="71.0" prefWidth="83.0">
+                                 <children>
+                                    <ImageView fitHeight="56.0" fitWidth="58.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/refreshw.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
                      </children>
                   </HBox>
                </children>
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
-            </VBox>
-            <HBox alignment="CENTER" layoutY="191.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <VBox layoutY="228.0" prefHeight="272.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="228.0">
+            </AnchorPane>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="724.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <TableView fx:id="tblFlower" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #dcdde1;" stylesheets="@../CssStyles/table1.css" VBox.vgrow="ALWAYS">
+                  <Label prefHeight="46.0" prefWidth="125.0" style="-fx-border-color: black;" text="Flower Id">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblFlowerId" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="66.0" style="-fx-border-color: black;" text="1" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton fx:id="btnSearchFlower" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#searchFlowerOnAction" prefHeight="38.0" prefWidth="43.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <JFXBadge prefHeight="25.0" prefWidth="39.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/search.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </JFXBadge>
+                     </graphic>
+                  </JFXButton>
+                  <TextField prefHeight="32.0" prefWidth="523.0" style="-fx-background-color: null; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <VBox layoutX="10.0" layoutY="281.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="290.0">
+               <children>
+                  <TableView fx:id="tblFlower" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="209.0" prefWidth="724.0" style="-fx-font-size: 16px;" stylesheets="@../CssStyles/table1.css" VBox.vgrow="ALWAYS">
                      <columns>
                         <TableColumn fx:id="colFlowerId" prefWidth="81.0" text="Flower Id" />
                         <TableColumn fx:id="colFlowerName" prefWidth="123.0" text="Flower Name" />
@@ -109,55 +223,31 @@
                      </columnResizePolicy>
                   </TableView>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </VBox>
-            <HBox alignment="CENTER" layoutX="74.0" layoutY="195.0" prefHeight="33.0" prefWidth="657.0" spacing="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <HBox layoutX="104.0" layoutY="117.0" prefHeight="37.0" prefWidth="406.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="260.0">
                <children>
-                  <JFXButton fx:id="btnSearchFlower" buttonType="RAISED" onAction="#searchFlowerOnAction" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #7f8fa6;" text="Search">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
+                  <TextField fx:id="txtFlowerCategory" prefHeight="37.0" prefWidth="400.0" promptText="boquet" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 20; -fx-background-radius: 20;" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font size="16.0" />
                      </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnUpdateFlower" buttonType="RAISED" onAction="#updateFlowerOnAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #7f8fa6;" text="Update">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
+                  </TextField>
+                  <JFXComboBox fx:id="cmbFlowerCategory" prefHeight="37.0" prefWidth="80.0" promptText="Type" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox layoutX="104.0" layoutY="170.0" prefHeight="37.0" prefWidth="406.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="260.0">
+               <children>
+                  <TextField fx:id="txtFlowerPrice" prefHeight="37.0" prefWidth="400.0" promptText="1750" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font size="16.0" />
                      </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnDeleteFlower" buttonType="RAISED" onAction="#deleteFlowerOnAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #7f8fa6;" text="Delete">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnResetFlower" buttonType="RAISED" onAction="#flowerPageResetOnAction" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #7f8fa6;" text="Reset">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnSaveFlower" buttonType="RAISED" onAction="#flowerSaveOnAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #7f8fa6;" text="Save" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </JFXButton>
+                  </TextField>
+                  <JFXComboBox fx:id="cmbFlowerPrice" prefHeight="37.0" prefWidth="80.0" promptText="Price (RS)" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>
-         <opaqueInsets>
-            <Insets left="10.0" right="10.0" />
-         </opaqueInsets>
       </AnchorPane>
    </children>
 </AnchorPane>

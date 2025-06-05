@@ -5,6 +5,7 @@ import lk.ijse.florist_pos.final_project.dto.OrderDetailsDto;
 import lk.ijse.florist_pos.final_project.dto.OrderItemDto;
 import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -143,5 +144,35 @@ public class OrderModel {
         """;
 
         return CrudUtil.execute(sql);
+    }
+
+    public static BigDecimal getTodayTotalSales() throws SQLException {
+        String sql = "SELECT SUM(CAST(total_bill AS DECIMAL(10, 2))) AS today_total " +
+                "FROM order_item_details " +
+                "WHERE DATE(order_date) = CURDATE()";
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        if (resultSet.next()) {
+            return resultSet.getBigDecimal("today_total") != null
+                    ? resultSet.getBigDecimal("today_total")
+                    : BigDecimal.ZERO;
+        }
+        return BigDecimal.ZERO;
+    }
+
+    public static BigDecimal getYesterdayTotalSales() throws SQLException {
+        String qry = "SELECT SUM(CAST(total_bill AS DECIMAL(10, 2))) AS yesterday_total FROM order_item_details WHERE" +
+                " DATE(order_date) = CURDATE() - INTERVAL 1 DAY";
+
+
+        ResultSet resultSet = CrudUtil.execute(qry);
+
+        if (resultSet.next()) {
+            return resultSet.getBigDecimal("yesterday_total") != null
+                    ? resultSet.getBigDecimal("yesterday_total")
+                    : BigDecimal.ZERO;
+        }
+        return BigDecimal.ZERO;
     }
 }

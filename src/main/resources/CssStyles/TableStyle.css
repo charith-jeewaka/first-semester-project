@@ -1,46 +1,11 @@
-.table-view {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 10;
-    -fx-table-cell-border-color: transparent;
+tblCustomer.table-row-cell:odd {
+    -fx-background-color: #1c1616;
 }
 
-.table-column {
-    -fx-alignment: CENTER-LEFT;
+tblCustomer.table-row-cell:even {
+    -fx-background-color: #b63434;
 }
 
-.table-view .column-header-background {
-    -fx-background-color: #1976D2; /* Material Blue */
-    -fx-padding: 0 0 5 0;
-}
-
-.table-view .column-header {
-    -fx-background-color: #1976D2;
-    -fx-border-width: 0 0 1 0;
-    -fx-border-color: transparent;
-}
-
-.table-view .label {
-    -fx-text-fill: #ff1d1d;
-    -fx-font-weight: bold;
-}
-
-.table-row-cell {
-    -fx-background-color: #290404;
-    -fx-border-color: transparent transparent #a2e387 transparent;
-}
-
-.table-row-cell:hover {
-    -fx-background-color: #1f2125;
-}
-
-.table-row-cell:filled:selected, .table-row-cell:filled:selected:hover {
-    -fx-background-color: #45a9ff;
-    -fx-text-fill: black;
-}
-
-.table-cell {
-    -fx-padding: 8px;
-    -fx-font-size: 14px;
-    -fx-text-fill: #212121;
+tblCustomer.table-row-cell:hover {
+    -fx-background-color: #18c51d;
 }

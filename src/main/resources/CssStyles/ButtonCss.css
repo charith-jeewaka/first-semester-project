@@ -1,11 +1,16 @@
-.jfx-button-green {
+.button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-background-radius: 20;
+    -fx-font-weight: bold;
     -fx-cursor: hand;
-    -fx-padding: 10 20;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
 }
-.jfx-button-green:hover {
-    -fx-background-color: #388E3C;
+
+.button:hover {
+    -fx-background-color: #45a049;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
 }

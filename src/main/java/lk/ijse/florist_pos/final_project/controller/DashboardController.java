@@ -16,12 +16,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -65,10 +71,12 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         startClock();
         navigateTo("/View/HomePage.fxml");
         Image image = imgDashboardUser1.getImage();
         imgDashboardUser2.setImage(image);
+
     }
 
     public void logoutonAction(ActionEvent actionEvent) throws IOException {
@@ -140,5 +148,25 @@ public class DashboardController implements Initializable {
         }));
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
+    }
+
+    public void goUserOnMouseClicked(MouseEvent mouseEvent) {
+        navigateTo("/View/UserPage.fxml");
+
+    }
+
+    public void openManuualOnAction(ActionEvent actionEvent) {
+        try {
+            InputStream inputStream = getClass().getResourceAsStream("/Mannual.txt");
+            File tempFile = File.createTempFile("manual", ".txt");
+            Files.copy(inputStream, tempFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            Desktop.getDesktop().open(tempFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goStaffPageOnAction(ActionEvent actionEvent) {
+        navigateTo("/View/StaffPage.fxml");
     }
 }

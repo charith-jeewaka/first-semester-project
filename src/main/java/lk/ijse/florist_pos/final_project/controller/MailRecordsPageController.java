@@ -35,8 +35,8 @@ public class MailRecordsPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        imageView.fitWidthProperty().bind(ancMailLog.widthProperty());
-        imageView.fitHeightProperty().bind(ancMailLog.heightProperty());
+//        imageView.fitWidthProperty().bind(ancMailLog.widthProperty());
+//        imageView.fitHeightProperty().bind(ancMailLog.heightProperty());
         setCellValues();
         loadAllEmails();
     }

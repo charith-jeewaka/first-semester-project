@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="ancStaff" prefHeight="510.0" prefWidth="773.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.StaffPageController">
+   <children>
+      <Label layoutX="339.0" layoutY="223.0" text="Label" />
+   </children>
+</AnchorPane>

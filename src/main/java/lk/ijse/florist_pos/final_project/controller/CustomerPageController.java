@@ -2,13 +2,16 @@ package lk.ijse.florist_pos.final_project.controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.ijse.florist_pos.final_project.dto.CustomerDto;
@@ -40,7 +43,6 @@ public class CustomerPageController implements Initializable {
     public TextField txtEmail;
     public TextField txtAddress;
     public TextField txtName;
-    public TextArea txtSearchCustomer;
     public Label lblCustomerId;
 
 
@@ -49,12 +51,20 @@ public class CustomerPageController implements Initializable {
     private final String phonePattern = "^[0-9]{10}$";
     private final String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
     private final String addressPattern = "^[A-Za-z ]+$";
+    public TextField txtSearchCustomer;
+    public AnchorPane ancCustomer;
+    public ImageView imageView;
 
     CustomerModel customerModel = new CustomerModel();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        txtName.requestFocus();
+
+        imageView.fitWidthProperty().bind(ancCustomer.widthProperty());
+        imageView.fitHeightProperty().bind(ancCustomer.heightProperty());
         // table column and tm class properties link
         colId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
@@ -62,7 +72,6 @@ public class CustomerPageController implements Initializable {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("customerEmail"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
         colRegisteredTime.setCellValueFactory(new PropertyValueFactory<>("registeredTime"));
-
 
         try {
             loadNextId();

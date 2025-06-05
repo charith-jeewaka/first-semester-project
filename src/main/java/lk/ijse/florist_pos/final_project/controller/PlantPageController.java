@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.florist_pos.final_project.dto.PlantDto;
@@ -57,9 +58,13 @@ public class PlantPageController implements Initializable {
     private final String heightPattern = "^(0\\.5|[1-4](\\.5)?|5)$";
     private final String pricePattern = "^\\d+(\\.\\d{2})?$";
     private final String qtyPattern = "^\\d+$";
+    public ImageView imageView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        imageView.fitWidthProperty().bind(ancPlant.widthProperty());
+        imageView.fitHeightProperty().bind(ancPlant.heightProperty());
 
         ObservableList<String> plantNames = FXCollections.observableArrayList(
                 "Rose", "Lily", "Orchid", "Tulip", "Daffodil",

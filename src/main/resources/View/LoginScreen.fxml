@@ -19,7 +19,7 @@
 
 <BorderPane fx:id="AncLoginContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.LoginScreenController">
    <right>
-      <AnchorPane prefHeight="400.0" prefWidth="297.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="297.0" style="-fx-background-color: #dfe6e9;" BorderPane.alignment="CENTER">
          <children>
             <HBox layoutX="16.0" layoutY="93.0" prefHeight="25.0" prefWidth="249.0" AnchorPane.leftAnchor="16.0">
                <children>
@@ -28,7 +28,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="159.0" promptText="USERNAME" style="-fx-background-color: null; -fx-border-width: 0 0 1px 0; -fx-border-color: #1abc9c;">
+                  <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="159.0" promptText="USERNAME" style="-fx-background-color: null; -fx-border-width: 0 0 1px 0; -fx-border-color: #1abc9c;" text="admin">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></TextField>
@@ -46,18 +46,18 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="159.0" promptText="PASSWORD" style="-fx-background-color: null; -fx-border-color: #1abc9c; -fx-border-width: 0 0 1px 0;">
+                  <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="159.0" promptText="PASSWORD" style="-fx-background-color: null; -fx-border-color: #1abc9c; -fx-border-width: 0 0 1px 0;" text="admin123">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></PasswordField>
                </children>
             </HBox>
-            <Button fx:id="btnCancel" layoutX="41.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #EA2027;" text="CANCEL" textFill="WHITE">
+            <Button fx:id="btnCancel" layoutX="41.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #EA2#fab1a0027;" text="CANCEL" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnLoggin" layoutX="41.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnLogginOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #009432;" text="LOGIN" textFill="WHITE">
+            <Button fx:id="btnLoggin" layoutX="41.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnLogginOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #74b9ff;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -77,6 +77,20 @@
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #dfe4ea;" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/imgBig.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="20.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/imgSmall.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="400.0" fitWidth="228.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../images/flower.jpg" />
+               </image></ImageView>
             <Label layoutX="40.0" layoutY="55.0" prefHeight="53.0" prefWidth="147.0" text="FLORIST">
                <font>
                   <Font name="System Bold" size="36.0" />
@@ -86,12 +100,12 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.18412524461746216" green="0.5526315569877625" blue="0.17141813039779663" />
+                              <Color red="0.1522904485464096" green="0.5736273527145386" blue="0.6578947305679321" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.040176667273044586" green="0.17000000178813934" blue="0.0357000008225441" />
+                              <Color />
                            </color>
                         </Stop>
                      </stops>
@@ -107,35 +121,25 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.18412524461746216" green="0.5526315569877625" blue="0.17141813039779663" />
+                              <Color red="0.1623416244983673" green="0.4451906681060791" blue="0.5394737124443054" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.040176667273044586" green="0.17000000178813934" blue="0.0357000008225441" />
+                              <Color green="0.28421053290367126" blue="0.31578946113586426" />
                            </color>
                         </Stop>
                      </stops>
                   </RadialGradient>
                </textFill>
             </Label>
-            <Line endX="100.0" layoutX="114.0" layoutY="108.0" startX="-100.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="378.0" prefHeight="17.0" prefWidth="228.0" text="IJSE private limited AllRights Reserved @" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <Text layoutX="35.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLEASE LOGIN TO CONTINUE" textAlignment="CENTER" wrappingWidth="157.142578125">
+            <Text fill="WHITE" layoutX="35.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLEASE LOGIN TO CONTINUE" textAlignment="CENTER" wrappingWidth="157.142578125">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/imgBig.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="20.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/imgSmall.png" />
-               </image>
-            </ImageView>
+            <Line endX="100.0" layoutX="114.0" layoutY="108.0" startX="-100.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="378.0" prefHeight="17.0" prefWidth="228.0" text="IJSE private limited AllRights Reserved @" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
          </children>
          <effect>
             <Bloom threshold="1.0" />

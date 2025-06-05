@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.paint.Color?>
@@ -11,11 +13,16 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="744.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.ItemWastePageController">
+<AnchorPane fx:id="ancWaste" prefHeight="500.0" prefWidth="744.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.ItemWastePageController">
    <children>
+      <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="744.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../images/bground.png" />
+         </image>
+      </ImageView>
       <HBox alignment="CENTER" layoutX="20.0" layoutY="78.0" prefHeight="375.0" prefWidth="744.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0">
          <children>
-            <TableView fx:id="tblFWaste" prefHeight="381.0" prefWidth="744.0" stylesheets="@../CssStyles/table1.css" HBox.hgrow="ALWAYS">
+            <TableView fx:id="tblFWaste" prefHeight="381.0" prefWidth="744.0" style="-fx-font-size: 16px;" stylesheets="@../CssStyles/table1.css" HBox.hgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="colWid" prefWidth="72.0" text="Waste ID" />
                 <TableColumn fx:id="colFlowerId" text="Flower ID" />

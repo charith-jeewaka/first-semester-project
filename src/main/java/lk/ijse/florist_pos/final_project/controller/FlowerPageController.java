@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.florist_pos.final_project.dto.FlowerDto;
@@ -48,6 +49,7 @@ public class FlowerPageController implements Initializable {
     public JFXButton btnDeleteFlower;
     public JFXButton btnResetFlower;
     public JFXButton btnSaveFlower;
+    public ImageView imageView;
 
     FlowerModel flowerModel = new FlowerModel();
 
@@ -82,6 +84,9 @@ public class FlowerPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageView.fitWidthProperty().bind(ancFlower.widthProperty());
+        imageView.fitHeightProperty().bind(ancFlower.heightProperty());
+
         colFlowerId.setCellValueFactory(new PropertyValueFactory<>("flowerId"));
         colFlowerName.setCellValueFactory(new PropertyValueFactory<>("flowerName"));
         colFlowerCategory.setCellValueFactory(new PropertyValueFactory<>("flowerCategory"));

@@ -7,12 +7,12 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -26,25 +26,34 @@
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="610.0" prefWidth="188.0" style="-fx-background-color: linear-gradient(to bottom, #004d40 0%, #00332c 50%, #004d40 100%);">
                <children>
-                  <ImageView fx:id="imgDashboardUser1" fitHeight="152.0" fitWidth="164.0" pickOnBounds="true">
-                     <effect>
-                        <Glow />
-                     </effect>
+                  <AnchorPane>
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
-                     <image>
-                        <Image url="@../images/user.png" />
-                     </image>
-                  </ImageView>
+                     <children>
+                        <ImageView fx:id="imgDashboardUser1" fitHeight="152.0" fitWidth="164.0" layoutX="12.0" onMouseClicked="#goUserOnMouseClicked" pickOnBounds="true" style="-fx-cursor: hand;">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <image>
+                              <Image url="@../images/user3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="75.0" layoutY="116.0" onMouseClicked="#goUserOnMouseClicked" pickOnBounds="true" style="-fx-cursor: hand;">
+                           <image>
+                              <Image url="@../images/plus.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                   <Label text="WELCOME" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="30.0" />
+                        <Font name="Arial Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblCurrentUser" text="CHARITH" textFill="WHITE">
+                  <Label fx:id="lblCurrentUser" onMouseClicked="#goUserOnMouseClicked" style="-fx-cursor: hand;" text="CHARITH" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Label>
                   <Line endX="38.5" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
 
@@ -221,7 +230,7 @@
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
                      <children>
-                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="REPORTS">
+                        <JFXButton buttonType="RAISED" mnemonicParsing="false" onAction="#goStaffPageOnAction" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="STAFF">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -229,9 +238,9 @@
                               <Insets left="5.0" right="5.0" top="10.0" />
                            </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/reports.png" />
+                                    <Image url="@../images/staff.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -297,42 +306,49 @@
             <ColorAdjust />
          </effect>
          <children>
-            <JFXBadge layoutX="231.0" layoutY="163.0" prefHeight="16.0" prefWidth="16.0" />
-            <JFXBadge layoutX="247.0" layoutY="223.0" prefHeight="16.0" prefWidth="16.0" />
-            <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="529.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/reports.png" />
-               </image>
-            </ImageView>
+            <StackPane layoutX="129.0" layoutY="83.0" />
          </children></AnchorPane>
       <HBox layoutX="188.0" prefHeight="68.0" prefWidth="773.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="68.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="lblDashBoardName" alignment="CENTER" layoutX="497.0" layoutY="3.0" prefHeight="34.0" prefWidth="153.0" text="Charith jeewaka" textFill="WHITE" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="3.0">
+                  <Label fx:id="lblDashBoardName" alignment="CENTER" layoutX="633.0" layoutY="46.0" onMouseClicked="#goUserOnMouseClicked" prefHeight="17.0" prefWidth="140.0" style="-fx-cursor: hand;" text="Charith jeewaka" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblClock" alignment="CENTER" contentDisplay="CENTER" layoutX="497.0" layoutY="34.0" prefHeight="34.0" prefWidth="153.0" text="10:30:25" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="69.0">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="219.0" text="FLORIST POS" textFill="WHITE">
                      <font>
-                        <Font name="Arial Bold" size="16.0" />
+                        <Font name="Ebrima" size="36.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="8.0" prefHeight="53.0" prefWidth="272.0" text="FLORIST POS" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="36.0" />
-                     </font>
-                     <effect>
-                        <DropShadow height="255.0" radius="127.0" spread="0.34" width="255.0" />
-                     </effect>
-                  </Label>
-                  <ImageView fx:id="imgDashboardUser2" fitHeight="68.0" fitWidth="69.0" layoutX="698.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" />
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="483.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="230.0">
+                  <ImageView fx:id="imgDashboardUser2" fitHeight="52.0" fitWidth="60.0" layoutX="673.0" onMouseClicked="#goUserOnMouseClicked" pickOnBounds="true" style="-fx-cursor: hand;" AnchorPane.rightAnchor="40.0">
+                     <image>
+                        <Image url="@../images/user3.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="52.0" fitWidth="60.0" layoutX="549.0" pickOnBounds="true" AnchorPane.rightAnchor="164.0">
                      <image>
                         <Image url="@../images/time.png" />
                      </image>
                   </ImageView>
+                  <Label fx:id="lblClock" alignment="CENTER" contentDisplay="CENTER" layoutX="530.0" layoutY="51.0" prefHeight="17.0" prefWidth="97.0" text="10:30:25" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="146.0">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="CENTER" layoutX="733.0" layoutY="4.0" onAction="#openManuualOnAction" prefHeight="7.0" prefWidth="34.0" text="i" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <JFXBadge prefHeight="27.0" prefWidth="30.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../images/question.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </JFXBadge>
+                     </graphic>
+                  </JFXButton>
                </children>
             </AnchorPane>
          </children>

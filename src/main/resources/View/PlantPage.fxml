@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXBadge?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
@@ -7,89 +8,156 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancPlant" prefHeight="500.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.PlantPageController">
+<AnchorPane fx:id="ancPlant" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.PlantPageController">
    <children>
-      <VBox layoutX="291.0" layoutY="24.0" prefHeight="182.0" prefWidth="744.0" AnchorPane.bottomAnchor="294.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0" />
-      <VBox layoutX="10.0" layoutY="2.0" prefHeight="191.0" prefWidth="744.0" spacing="10.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="36.0" prefWidth="724.0">
+            <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="761.0" layoutX="189.0" layoutY="140.0" pickOnBounds="true" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../images/bground.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="10.0" layoutY="54.0" prefHeight="229.0" prefWidth="754.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="54.0">
                <children>
-                  <Label prefHeight="46.0" prefWidth="125.0" text="Plant Id">
+                  <HBox layoutX="102.0" layoutY="18.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="37.0" prefWidth="423.0" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="217.0" AnchorPane.topAnchor="17.0">
+                     <children>
+                        <TextField fx:id="txtname" prefHeight="37.0" prefWidth="359.0" promptText="ROSE PLANT" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                        </TextField>
+                        <JFXComboBox fx:id="cmbName" labelFloat="true" prefHeight="31.0" prefWidth="113.0" promptText="Plant" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="105.0" layoutY="123.0" prefHeight="37.0" prefWidth="421.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="216.0">
+                     <children>
+                        <TextField fx:id="txtQty" prefHeight="37.0" prefWidth="352.0" promptText="15" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                        </TextField>
+                        <JFXComboBox fx:id="cmbQty" prefHeight="37.0" prefWidth="104.0" promptText="Quantity" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="104.0" layoutY="175.0" prefHeight="37.0" prefWidth="421.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="217.0">
+                     <children>
+                        <TextField fx:id="txtPrice" prefHeight="37.0" prefWidth="400.0" promptText="1750" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </TextField>
+                        <JFXComboBox fx:id="cmbHeight" prefHeight="37.0" prefWidth="147.0" promptText="Height (Ft)" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="633.0" layoutY="14.0" prefHeight="95.0" prefWidth="95.0" style="-fx-border-radius: 20;" AnchorPane.rightAnchor="10.0">
+                     <children>
+                        <JFXButton fx:id="btnPlantUpdate" buttonType="RAISED" onAction="#plantUpdateOnAction" prefHeight="95.0" prefWidth="97.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-cursor: hand;" text=".">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="76.0" prefWidth="77.0">
+                                 <children>
+                                    <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/updatew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="618.0" layoutY="125.0" prefHeight="95.0" prefWidth="95.0" AnchorPane.rightAnchor="10.0">
+                     <children>
+                        <JFXButton fx:id="btnPlantDelete" buttonType="RAISED" onAction="#plantDeleteOnAction" prefHeight="95.0" prefWidth="95.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-cursor: hand;" text=".">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="80.0" prefWidth="80.0">
+                                 <children>
+                                    <ImageView fitHeight="53.0" fitWidth="49.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/deletew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="531.0" layoutY="125.0" prefHeight="95.0" prefWidth="95.0" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="115.0">
+                     <children>
+                        <JFXButton fx:id="btnPlantPageReset" buttonType="RAISED" onAction="#plantPageResetOnAction" prefHeight="95.0" prefWidth="95.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-cursor: hand;" text=".">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="71.0" prefWidth="75.0">
+                                 <children>
+                                    <ImageView fitHeight="56.0" fitWidth="58.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/refreshw.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="530.0" layoutY="14.0" prefHeight="95.0" prefWidth="95.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <JFXButton fx:id="btnPlantSave" buttonType="RAISED" onAction="#plantSaveOnAction" prefHeight="95.0" prefWidth="95.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-border-radius: 20; -fx-background-radius: 20; -fx-cursor: hand;" text=".">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="78.0" prefWidth="78.0">
+                                 <children>
+                                    <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/savew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <Label layoutX="14.0" layoutY="17.0" prefHeight="37.0" prefWidth="81.0" text="Name">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPlantId" prefHeight="33.0" prefWidth="66.0" text="1" HBox.hgrow="ALWAYS">
+                  <Label layoutX="14.0" layoutY="67.0" prefHeight="37.0" prefWidth="81.0" text="Varient">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="123.0" prefHeight="37.0" prefWidth="81.0" text="Plant Qty">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="176.0" prefHeight="33.0" prefWidth="81.0" text="Plant Price">
+                     <font>
+                        <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
                </children>
-            </HBox>
-            <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="13.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label prefHeight="33.0" prefWidth="150.0" text="Plant Name">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtname" prefHeight="31.0" prefWidth="450.0" promptText="ROSE PLANT" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <JFXComboBox fx:id="cmbName" labelFloat="true" prefHeight="25.0" prefWidth="126.0" promptText="Plant" style="-fx-background-color: #7f8fa6;" />
-               </children>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="7.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label prefHeight="40.0" prefWidth="150.0" text="Plant Varient">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtVarient" prefHeight="49.0" prefWidth="449.0" promptText="WHITE ROSE" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <JFXComboBox fx:id="cmbVarient" prefHeight="25.0" prefWidth="126.0" promptText="Plant Varient" style="-fx-background-color: #7f8fa6;" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="143.0" prefHeight="5.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label prefHeight="33.0" prefWidth="150.0" text="Plant Price">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtPrice" prefHeight="45.0" prefWidth="450.0" promptText="1750" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <JFXComboBox fx:id="cmbHeight" prefHeight="25.0" prefWidth="126.0" promptText="Plant Height (Ft)" style="-fx-background-color: #7f8fa6;" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <HBox prefHeight="49.0" prefWidth="724.0">
-               <children>
-                  <Label prefHeight="33.0" prefWidth="150.0" text="Plant Qty">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtQty" prefHeight="26.0" prefWidth="437.0" promptText="15" style="-fx-background-color: null; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS" />
-                  <JFXComboBox fx:id="cmbQty" prefHeight="25.0" prefWidth="126.0" promptText="Plant Qty" style="-fx-background-color: #7f8fa6;" />
-               </children>
-            </HBox>
-         </children>
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
-      </VBox>
-      <HBox alignment="CENTER" layoutY="191.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <VBox layoutY="228.0" prefHeight="272.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="228.0">
-         <children>
-            <TableView fx:id="tblPlant" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="276.0" prefWidth="744.0" style="-fx-background-color: #dcdde1;" stylesheets="@../CssStyles/table1.css" VBox.vgrow="ALWAYS">
+            </AnchorPane>
+            <TableView fx:id="tblPlant" fixedCellSize="0.0" layoutX="48.0" layoutY="290.0" onMouseClicked="#onClickTable" prefHeight="200.0" prefWidth="724.0" style="-fx-font-size: 16px;" stylesheets="@../CssStyles/table1.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="290.0">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="68.0" text="Plant ID" />
                   <TableColumn fx:id="colName" prefWidth="131.0" text="Plant Name" />
@@ -106,54 +174,52 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+            <HBox layoutX="10.0" layoutY="4.0" prefHeight="36.0" prefWidth="724.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="125.0" style="-fx-border-color: black;" text="Plant Id" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPlantId" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="66.0" style="-fx-border-color: black;" text="1" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="btnPlantSearch" buttonType="RAISED" onAction="#plantSearchOnAction" prefHeight="39.0" prefWidth="54.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-cursor: hand;" text=".">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <JFXBadge prefHeight="25.0" prefWidth="39.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/search.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </JFXBadge>
+                     </graphic>
+                  </JFXButton>
+                  <TextField style="-fx-background-color: null; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="111.0" layoutY="121.0" prefHeight="37.0" prefWidth="421.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="229.0">
+               <children>
+                  <TextField fx:id="txtVarient" prefHeight="37.0" prefWidth="360.0" promptText="WHITE ROSE" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </TextField>
+                  <JFXComboBox fx:id="cmbVarient" prefHeight="37.0" prefWidth="111.0" promptText="Varient" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
          </children>
-      </VBox>
-      <HBox alignment="CENTER" layoutX="74.0" layoutY="195.0" prefHeight="33.0" prefWidth="657.0" spacing="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <JFXButton fx:id="btnPlantSearch" buttonType="RAISED" onAction="#plantSearchOnAction" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #7f8fa6;" text="Search">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="btnPlantUpdate" buttonType="RAISED" onAction="#plantUpdateOnAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #7f8fa6;" text="Update">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="btnPlantDelete" buttonType="RAISED" onAction="#plantDeleteOnAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #7f8fa6;" text="Delete">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="btnPlantPageReset" buttonType="RAISED" onAction="#plantPageResetOnAction" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #7f8fa6;" text="Reset">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="btnPlantSave" buttonType="RAISED" onAction="#plantSaveOnAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #7f8fa6;" text="Save" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </HBox>
+      </AnchorPane>
    </children>
-   <opaqueInsets>
-      <Insets left="10.0" right="10.0" />
-   </opaqueInsets>
 </AnchorPane>

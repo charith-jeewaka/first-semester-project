@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
@@ -104,18 +103,12 @@
                   </StackPane>
                   <HBox alignment="CENTER" layoutY="439.0" prefHeight="71.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <JFXButton fx:id="btnSend" buttonType="RAISED" onAction="#btnSendOnAction" prefHeight="39.0" prefWidth="129.0" ripplerFill="#06a10b" style="-fx-background-color: #a4b0be;" text="Send">
+                        <JFXButton fx:id="btnSend" buttonType="RAISED" onAction="#btnSendOnAction" prefHeight="75.0" prefWidth="129.0" ripplerFill="#06a10b" style="-fx-scale-x: 1.03; -fx-scale-y: 1.03;" text="Send">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
                         </JFXButton>
                      </children>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </HBox>
                   <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="742.0" layoutY="193.0" onAction="#clearTxaOnAction" prefHeight="23.0" prefWidth="33.0" style="-fx-background-color: #ff4757;" text="X" textFill="WHITE" AnchorPane.rightAnchor="25.0">
                      <font>

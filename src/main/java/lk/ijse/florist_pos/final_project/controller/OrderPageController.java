@@ -8,18 +8,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.florist_pos.final_project.DBConnect.DBConnection;
 import lk.ijse.florist_pos.final_project.dto.OrderDetailsDto;
 import lk.ijse.florist_pos.final_project.dto.OrderItemDto;
 import lk.ijse.florist_pos.final_project.dto.Tm.CartTm;
 import lk.ijse.florist_pos.final_project.model.OrderModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class OrderPageController implements Initializable {
 
@@ -46,17 +53,18 @@ public class OrderPageController implements Initializable {
     public Label lblOrderDate;
     public Label lblOrderId;
 
+    public Label lblBalence;
+
     public TextField txtAddToCartQty;
     public TextField txtItemId;
     public TextField txtCustomerMobile;
+    public TextField txtCash;
 
     private final ObservableList<CartTm> cartTmList = FXCollections.observableArrayList();
     private final OrderModel orderModel = new OrderModel();
     public JFXRadioButton rbtnCard;
     public JFXRadioButton rbtnCash;
     public ToggleGroup paymentType = new ToggleGroup();
-
-
 
 
 
@@ -213,10 +221,49 @@ public class OrderPageController implements Initializable {
             orderDetailsList.add(dto);
         }
 
+        ////////////////////////
+        if (rbtnCash.isSelected()) {
+            String cashText = txtCash.getText();
+
+            if (cashText.isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "Please enter the cash amount.").show();
+                return;
+            }
+
+            double cash;
+            try {
+                cash = Double.parseDouble(cashText);
+            } catch (NumberFormatException e) {
+                new Alert(Alert.AlertType.ERROR, "Invalid cash amount. Please enter a valid number.").show();
+                return;
+            }
+
+            double total = Double.parseDouble(lblTotalBill.getText());
+
+            if (cash < total) {
+                new Alert(Alert.AlertType.ERROR, "Insufficient cash. Customer must pay at least " + total).show();
+                return;
+            }
+
+            double balance = cash - total;
+            lblBalence.setText(String.format("%.2f", balance));
+        }else {
+            lblBalence.setText("");
+
+        }
+
+
+
         boolean isPlaced = orderModel.placeOrder(orderDetailsList);
 
         if (isPlaced) {
-            new Alert(Alert.AlertType.INFORMATION, "Order placed successfully").show();
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION, "Need a Bill ?", ButtonType.YES, ButtonType.NO);
+            Optional<ButtonType> result = confirmation.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.YES) {
+                ReportGenerator reportGenerator = new ReportGenerator();
+                reportGenerator.generateBill(lblBalence.getText());
+            }
 
             resetPage();
         } else {
@@ -290,4 +337,15 @@ public class OrderPageController implements Initializable {
                 .sum();
         return String.valueOf(total);
     }
+
+    public void todaySaleOnAction(ActionEvent actionEvent) {
+        ReportGenerator reportGenerator = new ReportGenerator();
+        reportGenerator.generateTodaySalesReport();
+    }
+
+    public void ySaleReportOnAction(ActionEvent actionEvent) {
+        ReportGenerator reportGenerator = new ReportGenerator();
+        reportGenerator.generateYesterdaySalesReport();
+    }
 }
+
