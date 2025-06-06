@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import lk.ijse.florist_pos.final_project.DBConnect.DBConnection;
 import lk.ijse.florist_pos.final_project.controller.DashboardController;
 import lk.ijse.florist_pos.final_project.controller.LoginScreenController;
+import lk.ijse.florist_pos.final_project.dto.SystemUserDto;
+import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +31,7 @@ public class SystemUserModel {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                // Login success
+
                 label.setText("Login successful!");
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Dashboard.fxml"));
@@ -41,11 +43,11 @@ public class SystemUserModel {
                 stage.setScene(new Scene(root));
                 stage.show();
 
-// Close the login window
+
                 ((Stage) username.getScene().getWindow()).close();
 
             } else {
-                // Login failed
+
                 label.setText("Invalid username or password");
                 username.clear();
                 password.clear();
@@ -74,7 +76,7 @@ public class SystemUserModel {
             statement.setString(6, nic);
 
             ResultSet resultSet = statement.executeQuery();
-            return resultSet.next(); // returns true if user found
+            return resultSet.next();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -89,11 +91,24 @@ public class SystemUserModel {
             statement.setString(1, newPassword);
             statement.setString(2, userId);
 
-            return statement.executeUpdate() > 0; // true if at least 1 row updated
+            return statement.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static boolean saveUser(SystemUserDto dto) throws Exception {
+        String sql = "INSERT INTO system_user (user_name, password, user_role, user_mobile, user_email, user_nic) VALUES (?, ?, ?, ?, ?, ?)";
+        return CrudUtil.execute(
+                sql,
+                dto.getUserName(),
+                dto.getPassword(),
+                dto.getUserRole(),
+                dto.getUserMobile(),
+                dto.getUserEmail(),
+                dto.getUserNic()
+        );
     }
 
 }

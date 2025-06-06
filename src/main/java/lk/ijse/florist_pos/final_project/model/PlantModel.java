@@ -94,4 +94,13 @@ public class PlantModel {
         pstm.setInt(3, qtyToReduce);
         return pstm.executeUpdate() > 0;
     }
+    public static int getTotalPlantQty() throws SQLException {
+        String sql = "SELECT COUNT(plant_id) AS plant_count FROM plant";
+        ResultSet rs = CrudUtil.execute(sql);
+        int plantCount = 0;
+        if (rs.next()) {
+            plantCount = rs.getInt("plant_count");
+        }
+        return plantCount;
+    }
 }

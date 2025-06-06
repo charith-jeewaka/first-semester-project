@@ -1,16 +1,22 @@
 package lk.ijse.florist_pos.final_project.model;
 
+import javafx.scene.chart.XYChart;
 import lk.ijse.florist_pos.final_project.DBConnect.DBConnection;
 import lk.ijse.florist_pos.final_project.dto.OrderDetailsDto;
 import lk.ijse.florist_pos.final_project.dto.OrderItemDto;
+import lk.ijse.florist_pos.final_project.dto.Tm.DailySalesTM;
 import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
+import javax.swing.plaf.PanelUI;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OrderModel {
     private final FlowerModel flowerModel = new FlowerModel();
@@ -175,4 +181,45 @@ public class OrderModel {
         }
         return BigDecimal.ZERO;
     }
+
+    public static Map<String, Double> getDailySales() throws SQLException {
+        String sql = "SELECT DATE(order_date) AS orderDay, " +
+                "SUM(CAST(total_amount AS DECIMAL(10,2))) AS totalSales " +
+                "FROM orders GROUP BY orderDay ORDER BY orderDay";
+
+        ResultSet rs = CrudUtil.execute(sql);
+
+        Map<String, Double> dailySales = new LinkedHashMap<>(); // keep insertion order
+        while (rs.next()) {
+            String date = rs.getString("orderDay");
+            double totalSales = rs.getDouble("totalSales");
+            dailySales.put(date, totalSales);
+        }
+        return dailySales;
+    }
+
+    public static double getTodayTotalSale() throws SQLException {
+        String sql = "SELECT SUM(CAST(total_bill AS DECIMAL(10,2))) AS today_sales FROM order_item_details WHERE DATE(order_date) = CURDATE()";
+
+        ResultSet rs = CrudUtil.execute(sql);
+        double todaySale = 0;
+        if (rs.next()) {
+            todaySale = rs.getInt("today_sales");
+        }
+        return todaySale;
+    }
+
+    public static double getYesterdayTotalSale() throws SQLException {
+        String sql = "SELECT SUM(CAST(total_bill AS DECIMAL(10,2))) AS yesterday_sales FROM order_item_details WHERE DATE(order_date) = CURDATE() - INTERVAL 1 DAY";
+
+
+        ResultSet rs = CrudUtil.execute(sql);
+        double yesterdaySale = 0;
+        if (rs.next()) {
+            yesterdaySale = rs.getInt("yesterday_sales");
+        }
+        return yesterdaySale;
+    }
+
+
 }

@@ -1,11 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXBadge?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="ancStaff" prefHeight="510.0" prefWidth="773.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.StaffPageController">
+<AnchorPane fx:id="ancStaff" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.StaffPageController">
    <children>
-      <Label layoutX="339.0" layoutY="223.0" text="Label" />
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="744.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/bground.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="10.0" layoutY="49.0" prefHeight="229.0" prefWidth="754.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="49.0">
+               <children>
+                  <VBox layoutX="1.0" layoutY="1.0" prefHeight="227.0" prefWidth="79.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="80.0" text="Name" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="5.0" top="13.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="34.0" prefWidth="80.0" text="Salary" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="19.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="34.0" prefWidth="80.0" text="Role" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="19.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="34.0" prefWidth="80.0" text="E-Mail" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="19.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox layoutX="95.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="37.0" prefWidth="406.0" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <TextField fx:id="txtName" prefHeight="37.0" prefWidth="400.0" promptText="Lavender" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="97.0" layoutY="176.0" prefHeight="34.0" prefWidth="404.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="253.0">
+                     <children>
+                        <TextField fx:id="txtEmail" prefHeight="34.0" prefWidth="400.0" promptText="15" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="514.0" layoutY="12.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="119.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="11.0">
+                     <children>
+                        <JFXButton fx:id="btnSave" buttonType="RAISED" onAction="#saveOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="78.0" prefWidth="88.0">
+                                 <children>
+                                    <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/savew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="587.0" layoutY="65.0" />
+                  <HBox layoutX="523.0" layoutY="13.0" prefHeight="98.0" prefWidth="100.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="12.0">
+                     <children>
+                        <JFXButton fx:id="btnDelete" buttonType="RAISED" onAction="#deleteOnAction" prefHeight="97.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-cursor: hand;" text="Delete" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="80.0" prefWidth="87.0">
+                                 <children>
+                                    <ImageView fitHeight="53.0" fitWidth="49.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/deletew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="522.0" layoutY="119.0" prefHeight="97.0" prefWidth="100.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="129.0">
+                     <children>
+                        <JFXButton fx:id="btnUpdate" buttonType="RAISED" onAction="#updateOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="76.0" prefWidth="88.0">
+                                 <children>
+                                    <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/updatew.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="642.0" layoutY="122.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0">
+                     <children>
+                        <JFXButton fx:id="btnReset" buttonType="RAISED" onAction="#PageResetOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <JFXBadge prefHeight="71.0" prefWidth="83.0">
+                                 <children>
+                                    <ImageView fitHeight="56.0" fitWidth="58.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/refreshw.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </JFXBadge>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="724.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="125.0" style="-fx-border-color: black;" text="Employee ID">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblEmpId" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="66.0" style="-fx-border-color: black;" text="1" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox layoutX="10.0" layoutY="281.0" onMouseClicked="#mouseClickOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="290.0">
+               <children>
+                  <TableView fx:id="tblEmployee" fixedCellSize="0.0" onMouseClicked="#onClickTable" prefHeight="209.0" prefWidth="724.0" style="-fx-font-size: 16px;" stylesheets="@../CssStyles/table1.css" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colId" prefWidth="81.0" text="Employee Id" />
+                        <TableColumn fx:id="colName" prefWidth="123.0" text="Employee Name" />
+                        <TableColumn fx:id="colSalary" prefWidth="131.0" text="Employee Salary" />
+                        <TableColumn fx:id="colRole" prefWidth="131.0" text="Employee Role" />
+                        <TableColumn fx:id="colEmail" prefWidth="99.0" text="Emplyee E-mail" />
+                     </columns>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <HBox layoutX="104.0" layoutY="117.0" prefHeight="37.0" prefWidth="406.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="260.0">
+               <children>
+                  <TextField fx:id="txtSalary" prefHeight="37.0" prefWidth="400.0" promptText="boquet" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 20; -fx-background-radius: 20;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="104.0" layoutY="170.0" prefHeight="37.0" prefWidth="406.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="260.0">
+               <children>
+                  <TextField fx:id="txtRole" prefHeight="37.0" prefWidth="400.0" promptText="1750" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1; -fx-background-radius: 20; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

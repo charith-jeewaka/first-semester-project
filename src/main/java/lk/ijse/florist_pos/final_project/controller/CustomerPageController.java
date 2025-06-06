@@ -65,7 +65,7 @@ public class CustomerPageController implements Initializable {
 
         imageView.fitWidthProperty().bind(ancCustomer.widthProperty());
         imageView.fitHeightProperty().bind(ancCustomer.heightProperty());
-        // table column and tm class properties link
+
         colId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         colMobile.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
@@ -104,10 +104,10 @@ public class CustomerPageController implements Initializable {
             loadTableData();
             lblCustomerId.setText(customerModel.getNextCustomerId());
 
-            // save button (id) -> enable
+
             btnSave.setDisable(false);
 
-            // update, delete button (id) -> disable
+
             btnDelete.setDisable(true);
             btnUpdate.setDisable(true);
 
@@ -258,22 +258,17 @@ public class CustomerPageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/SendMail.fxml"));
         Parent root = loader.load();
 
-        // Get the controller and pass the email
         SendMailPageController sendMailController = loader.getController();
         sendMailController.setEmail(email);
 
-        // Create a new stage for the Send Mail popup
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Send Email");
 
-        // ✅ Make it modal (block interaction with other windows)
         stage.initModality(Modality.APPLICATION_MODAL);
 
-        // ✅ Optional: make it owned by the current window
         stage.initOwner(((Stage) tblCustomer.getScene().getWindow()));
 
-        // Show and wait until it closes
         stage.showAndWait();
     }
     }

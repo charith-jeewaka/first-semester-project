@@ -56,40 +56,16 @@ public class ForgetPasswordPageController {
                 AnchorPane pane = FXMLLoader.load(getClass().getResource("/View/SavePasswordPage.fxml"));
                 AncForgetContainer.getChildren().add(pane);
 
-
-
             } else {
                 lblErrorMassage.setText("Incorrect details.");
                 clearFields();
-
-
             }
-
-
     }
 
     public void cancelOnAction(ActionEvent actionEvent) throws IOException {
-
         AncForgetContainer.getChildren().clear();
         BorderPane borderPane = FXMLLoader.load(getClass().getResource("/View/LoginScreen.fxml"));
         AncForgetContainer.getChildren().add(borderPane);
-    }
-
-
-    private  void navigateTo(String path) {
-        try {
-            AncForgetContainer.getChildren().clear();
-
-            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource(path));
-
-            anchorPane.prefWidthProperty().bind(AncForgetContainer.widthProperty());
-            anchorPane.prefHeightProperty().bind(AncForgetContainer.heightProperty());
-
-            AncForgetContainer.getChildren().add(anchorPane);
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Page not found..!").show();
-            e.printStackTrace();
-        }
     }
 
     private void clearFields() {
@@ -100,6 +76,4 @@ public class ForgetPasswordPageController {
         txtEmail.clear();
         txtRole.clear();
     }
-
-
 }

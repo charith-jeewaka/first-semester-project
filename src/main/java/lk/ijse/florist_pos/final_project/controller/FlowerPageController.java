@@ -104,7 +104,7 @@ public class FlowerPageController implements Initializable {
 
         cmbFlowerName.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtFlowerName.setText(newValue.toString());  // Fill the text field with selected plant name
+                txtFlowerName.setText(newValue.toString());
             }
         });
 
@@ -112,7 +112,7 @@ public class FlowerPageController implements Initializable {
 
         cmbFlowerCategory.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtFlowerCategory.setText(newValue.toString());  // Fill the text field with selected plant name
+                txtFlowerCategory.setText(newValue.toString());
             }
         });
 
@@ -131,14 +131,14 @@ public class FlowerPageController implements Initializable {
                     default:
                         cmbFlowerPrice.setItems(FXCollections.observableArrayList());
                 }
-                cmbFlowerPrice.getSelectionModel().clearSelection(); // Reset selection
-                txtFlowerPrice.clear(); // Clear the price field
+                cmbFlowerPrice.getSelectionModel().clearSelection();
+                txtFlowerPrice.clear();
             }
         });
 
         cmbFlowerPrice.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtFlowerPrice.setText(newValue);  // Set the selected price to the price text field
+                txtFlowerPrice.setText(newValue);
             }
         });
 
@@ -146,7 +146,7 @@ public class FlowerPageController implements Initializable {
 
         cmbFlowerQty.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtFlowerQty.setText(newValue.toString());  // Fill the text field with selected plant name
+                txtFlowerQty.setText(newValue.toString());
             }
         });
 
@@ -256,7 +256,7 @@ public class FlowerPageController implements Initializable {
         Optional<ButtonType> response = alert.showAndWait();
 
         if (response.isPresent() && response.get() == ButtonType.YES) {
-            // user with agree to delete data
+
             String flowerId = lblFlowerId.getText();
             try {
                 boolean isDeleted = flowerModel.deleteFlower(flowerId);

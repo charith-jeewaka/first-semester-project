@@ -22,7 +22,7 @@ public class FlowerModel {
             String nextIdString = String.format(tableCharacter + "%03d", nextIdNUmber); // "C002"
             return nextIdString;
         }
-        // No data recode in table so return initial primary key
+
         return tableCharacter + "001";
     }
 
@@ -62,7 +62,7 @@ public class FlowerModel {
                 flowerDto.getFlowerCategory(),
                 flowerDto.getFlowerPrice(),
                 flowerDto.getFlowerAvailableQty(),
-                flowerDto.getFlowerId() // <-- Add this
+                flowerDto.getFlowerId()
         );
     }
 
@@ -84,7 +84,7 @@ public class FlowerModel {
             long days = timeDiff / (1000 * 60 * 60 * 24);
 
             if (days >= 4) {
-                // Move to flower_waste and delete from flower table
+
                 CrudUtil.execute(
                         "INSERT INTO flower_waste (flower_id, wasted_flower_name, wasted_flower_qty, reason) VALUES (?, ?, ?, ?)",
                         flowerId, flowerName, qty, "Expired - Over 4 days"
@@ -100,14 +100,6 @@ public class FlowerModel {
         }
     }
 
-    public boolean reduceFlowerQty(Connection con, String flowerId, int qty) throws SQLException {
-        String sql = "UPDATE flower SET flower_available_qty = flower_available_qty - ? WHERE flower_id = ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, qty);
-        ps.setString(2, flowerId);
-        return ps.executeUpdate() > 0;
-    }
-
     public static boolean reduceQty(String flowerId, int qtyToReduce, Connection connection) throws SQLException {
         String sql = "UPDATE flower SET flower_available_qty = flower_available_qty - ? WHERE flower_id = ? AND flower_available_qty >= ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -115,6 +107,17 @@ public class FlowerModel {
         pstm.setString(2, flowerId);
         pstm.setInt(3, qtyToReduce);
         return pstm.executeUpdate() > 0;
+    }
+
+    public static int getTotalFlowerQty() throws SQLException {
+        String sql = "SELECT COUNT(flower_id) AS flower_count FROM flower";
+        ResultSet rs = CrudUtil.execute(sql);
+        int flowerCount = 0;
+        if (rs.next()) {
+            flowerCount = rs.getInt("flower_count");
+        }
+        System.out.println("Total flowers: " + flowerCount);
+        return flowerCount;
     }
 
 

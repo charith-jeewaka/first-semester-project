@@ -3,7 +3,6 @@ package lk.ijse.florist_pos.final_project.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -55,9 +54,7 @@ public class SavePasswordPageController {
         String newPassword = txtNewPassword.getText();
         String confirmPassword = txtConfirmNewPassword.getText();
 
-        // Validate that passwords match
         if (newPassword.equals(confirmPassword)) {
-            // Check minimum length of 3 characters
             if (newPassword.length() >= 3) {
                 SystemUserModel systemUserModel = new SystemUserModel();
                 if (systemUserModel.updateUserPassword(txtResetUserId.getText(), newPassword)) {
@@ -70,7 +67,6 @@ public class SavePasswordPageController {
                     BorderPane borderPane = FXMLLoader.load(getClass().getResource("/View/LoginScreen.fxml"));
                     ancResetPassword.getChildren().add(borderPane);
 
-
                 } else {
                     lblSavePasswordMassage.setText("Failed to update password.");
                 }
@@ -81,6 +77,4 @@ public class SavePasswordPageController {
             lblSavePasswordMassage.setText("Passwords do not match!");
         }
     }
-
-
 }

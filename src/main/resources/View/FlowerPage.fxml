@@ -84,7 +84,7 @@
                   </HBox>
                   <HBox layoutX="514.0" layoutY="12.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="119.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="11.0">
                      <children>
-                        <JFXButton fx:id="btnSaveFlower" buttonType="RAISED" onAction="#flowerSaveOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                        <JFXButton fx:id="btnSaveFlower" buttonType="RAISED" onAction="#flowerSaveOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -105,7 +105,7 @@
                   <HBox layoutX="587.0" layoutY="65.0" />
                   <HBox layoutX="523.0" layoutY="13.0" prefHeight="98.0" prefWidth="100.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="12.0">
                      <children>
-                        <JFXButton fx:id="btnDeleteFlower" buttonType="RAISED" onAction="#deleteFlowerOnAction" prefHeight="97.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-cursor: hand;" text="Delete" HBox.hgrow="ALWAYS">
+                        <JFXButton fx:id="btnDeleteFlower" buttonType="RAISED" onAction="#deleteFlowerOnAction" prefHeight="97.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-cursor: hand;" text="Delete" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -125,7 +125,7 @@
                   </HBox>
                   <HBox layoutX="522.0" layoutY="119.0" prefHeight="97.0" prefWidth="100.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="129.0">
                      <children>
-                        <JFXButton fx:id="btnUpdateFlower" buttonType="RAISED" onAction="#updateFlowerOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                        <JFXButton fx:id="btnUpdateFlower" buttonType="RAISED" onAction="#updateFlowerOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -145,7 +145,7 @@
                   </HBox>
                   <HBox layoutX="642.0" layoutY="122.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0">
                      <children>
-                        <JFXButton fx:id="btnResetFlower" buttonType="RAISED" onAction="#flowerPageResetOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                        <JFXButton fx:id="btnResetFlower" buttonType="RAISED" onAction="#flowerPageResetOnAction" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -180,7 +180,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton fx:id="btnSearchFlower" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#searchFlowerOnAction" prefHeight="38.0" prefWidth="43.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
+                  <JFXButton fx:id="btnSearchFlower" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#searchFlowerOnAction" prefHeight="38.0" prefWidth="43.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%); -fx-cursor: hand;" text="." HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

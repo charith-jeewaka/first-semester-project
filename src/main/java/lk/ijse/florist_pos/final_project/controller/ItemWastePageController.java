@@ -54,10 +54,6 @@ public class ItemWastePageController implements Initializable {
         colWasteDate.setCellValueFactory(new PropertyValueFactory<>("wasteDate"));
     }
 
-    public void loadWasteId() throws SQLException {
-        String nextWasteId = flowerWasteModel.getNextWasteId();
-    }
-
     public void resetPage() throws SQLException {
         loadTableData();
     }

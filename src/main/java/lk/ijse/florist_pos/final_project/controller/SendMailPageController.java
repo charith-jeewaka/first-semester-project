@@ -8,8 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import jakarta.mail.Authenticator;
@@ -22,7 +20,6 @@ import jakarta.mail.internet.MimeMessage;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.florist_pos.final_project.dto.SentEmailDto;
-import lk.ijse.florist_pos.final_project.dto.SupplierDto;
 import lk.ijse.florist_pos.final_project.model.SentEmailModel;
 import lk.ijse.florist_pos.final_project.model.SupplierModel;
 import lk.ijse.florist_pos.final_project.util.MailConfigLoader;
@@ -58,8 +55,6 @@ public class SendMailPageController {
     private TextField txtTo;
     @FXML
     private ProgressIndicator stkLoadingEffect;
-
-    public DashboardController dashboardController;
 
     public ObservableList<String> sampleSubjects = FXCollections.observableArrayList(
             "Request Supply","Thank You for Timely Delivery","Notice of Price Adjustment","Request for Quotation"
@@ -110,9 +105,9 @@ public class SendMailPageController {
         if (result.isEmpty() || result.get() != ButtonType.OK) {
             return;
         }
-        // Show spinner
+
         stkLoadingEffect.setVisible(true);
-        btnSend.setDisable(true); // Optional: disable send button while sending
+        btnSend.setDisable(true);
 
         // Run sending in a background thread to avoid freezing UI
         new Thread(() -> {
@@ -167,7 +162,6 @@ public class SendMailPageController {
             } catch (Exception e) {
                 e.printStackTrace();
 
-                // On failure: update UI on JavaFX Application Thread
                 Platform.runLater(() -> {
                     stkLoadingEffect.setVisible(false);
                     btnSend.setDisable(false);

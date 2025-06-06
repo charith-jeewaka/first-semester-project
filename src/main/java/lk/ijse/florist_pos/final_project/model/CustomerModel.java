@@ -21,7 +21,6 @@ public class CustomerModel {
             String nextIdString = String.format(tableCharacter + "%03d", nextIdNUmber); // "C002"
             return nextIdString;
         }
-        // No data recode in table so return initial primary key
         return tableCharacter + "001";
     }
 
@@ -76,7 +75,7 @@ public class CustomerModel {
     public CustomerDto searchCustomer(String number) throws SQLException {
         ResultSet resultSet = CrudUtil.execute("SELECT * FROM customer WHERE phone_number = ?;", number);
 
-        if (resultSet.next()) { // Check if a row exists
+        if (resultSet.next()) {
             return new CustomerDto(
                     resultSet.getString(1),
                     resultSet.getString(2),
@@ -86,7 +85,7 @@ public class CustomerModel {
                     resultSet.getString(6)
             );
         } else {
-            return null; // No matching customer
+            return null;
         }
     }
 

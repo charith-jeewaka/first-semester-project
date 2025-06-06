@@ -1,8 +1,6 @@
 package lk.ijse.florist_pos.final_project.model;
 
 import lk.ijse.florist_pos.final_project.DBConnect.DBConnection;
-import lk.ijse.florist_pos.final_project.dto.SupplierDto;
-import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +22,6 @@ public class SupplierModel {
                 emails.add(rs.getString("supplier_e_mail"));
             }
         }
-        // DO NOT close con here if shared
 
         return emails;
     }

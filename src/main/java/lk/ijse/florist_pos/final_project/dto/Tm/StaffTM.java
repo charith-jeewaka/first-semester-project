@@ -1,17 +1,16 @@
-package lk.ijse.florist_pos.final_project.dto;
+package lk.ijse.florist_pos.final_project.dto.Tm;
 
 import lombok.*;
 
-@ToString
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeDto {
+@Getter
+@Setter
+@ToString
+public class StaffTM {
     private String employeeId;
     private String employeeName;
     private String employeeSalary;
     private String employeePosition;
     private String employeeEmail;
-    }
-
+}

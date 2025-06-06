@@ -14,7 +14,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Load Splash Screen
+
         Parent splashRoot = FXMLLoader.load(getClass().getResource("/View/LoadingScreen.fxml"));
         Scene splashScene = new Scene(splashRoot);
         Stage splashStage = new Stage();
@@ -22,16 +22,15 @@ public class AppInitializer extends Application {
         splashStage.setScene(splashScene);
         splashStage.show();
 
-        // Stay for 4 seconds
+
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished(event -> {
-            // Fade out splash
+
             FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), splashRoot);
             fadeOut.setFromValue(1.0);
             fadeOut.setToValue(0.0);
             fadeOut.setOnFinished(e -> {
                 try {
-                    // Load Login Screen
                     Parent loginRoot = FXMLLoader.load(getClass().getResource("/View/LoginScreen.fxml"));
                     Scene loginScene = new Scene(loginRoot);
                     primaryStage.setScene(loginScene);

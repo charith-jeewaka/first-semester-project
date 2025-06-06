@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.florist_pos.final_project.dto.PlantDto;
-import lk.ijse.florist_pos.final_project.dto.Tm.CustomerTM;
 import lk.ijse.florist_pos.final_project.dto.Tm.PlantTM;
 import lk.ijse.florist_pos.final_project.model.PlantModel;
 
@@ -76,7 +75,7 @@ public class PlantPageController implements Initializable {
 
         cmbName.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtname.setText(newValue.toString());  // Fill the text field with selected plant name
+                txtname.setText(newValue.toString());
             }
         });
 
@@ -205,7 +204,7 @@ public class PlantPageController implements Initializable {
         String price = txtPrice.getText();
         String height = String.valueOf(cmbHeight.getValue());
 
-        // ✅ Get the existing registered time from the selected row
+
         PlantTM selectedItem = tblPlant.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
             new Alert(Alert.AlertType.ERROR, "No plant selected from table.").show();
@@ -246,7 +245,7 @@ public class PlantPageController implements Initializable {
         Optional<ButtonType> response = alert.showAndWait();
 
         if (response.isPresent() && response.get() == ButtonType.YES) {
-            // user with agree to delete data
+
             String plantId = lblPlantId.getText();
             try {
                 boolean isDeleted = plantModel.deletePlant(plantId);
@@ -291,7 +290,7 @@ public class PlantPageController implements Initializable {
 
         // Validate all fields
         if (isValidName && isValidHeight && isValidPrice && isValidVarient && isValidQty) {
-            // Create PlantDto with valid data
+
             PlantDto plantDto = new PlantDto(Id,
                     name,
                     height,
@@ -301,15 +300,14 @@ public class PlantPageController implements Initializable {
                     null);
 
             try {
-                // Attempt to save the plant in the model
+
                 boolean isSaved = plantModel.savePlant(plantDto);
 
                 if (isSaved) {
-                    // Show success message and reset the form
                     new Alert(Alert.AlertType.INFORMATION, "Plant saved successfully.").show();
-                    resetPage();  // Reset the page after saving
+                    resetPage();
                 } else {
-                    // Handle if the save failed (optional, based on your logic)
+
                     new Alert(Alert.AlertType.ERROR, "Error saving plant. Please try again.").show();
                 }
             } catch (SQLException e) {
@@ -317,7 +315,7 @@ public class PlantPageController implements Initializable {
                 new Alert(Alert.AlertType.ERROR, "Error Saving Plant").show();
             }
         } else {
-            // Show error alert if validation fails
+
             new Alert(Alert.AlertType.ERROR, "Invalid details entered. Please check your input.").show();
         }
     }

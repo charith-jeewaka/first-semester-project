@@ -48,7 +48,6 @@ public class LoginScreenController implements Initializable {
            SystemUserModel systemUserModel = new SystemUserModel();
            systemUserModel.validateLogin(txtUserName,txtPassword,lblIncorrectMassage);
            clearText();
-
        }
 
        else {
@@ -85,8 +84,6 @@ public class LoginScreenController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
 }
 
 

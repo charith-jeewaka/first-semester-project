@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.OrderPageController">
+<AnchorPane fx:id="ancOrder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.florist_pos.final_project.controller.OrderPageController">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="744.0" opacity="0.46" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="744.0" opacity="0.46" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../images/bground.png" />
          </image>
@@ -67,12 +67,12 @@
                               </Label>
                            </children>
                         </HBox>
-                        <TextField fx:id="txtCustomerMobile" maxHeight="350.0" maxWidth="550.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="070 - 0000000" style="-fx-border-width: 1; -fx-background-color: null; -fx-border-color: #000;" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="txtCustomerMobile" maxHeight="350.0" maxWidth="550.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="070 - 0000000" style="-fx-border-width: 2; -fx-background-color: null; -fx-border-color: #000;" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Arial" size="16.0" />
                            </font>
                         </TextField>
-                        <JFXButton fx:id="btnSearchCustomer" buttonType="RAISED" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchCustomerOnAction" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%);" text="S">
+                        <JFXButton fx:id="btnSearchCustomer" buttonType="RAISED" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchCustomerOnAction" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);" text="S">
                            <graphic>
                               <JFXBadge prefHeight="25.0" prefWidth="25.0">
                                  <children>
@@ -94,7 +94,7 @@
                                     <Insets left="35.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lblCustomerName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="250.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" style="-fx-border-color: black; -fx-border-width: 2;" text="Name" HBox.hgrow="ALWAYS">
+                              <Label fx:id="lblCustomerName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="250.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" style="-fx-border-color: black; -fx-border-width: 1;" text="Unknown" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Arial" size="16.0" />
                                  </font>
@@ -117,12 +117,12 @@
                               </Label>
                            </children>
                         </HBox>
-                        <TextField fx:id="txtItemId" maxHeight="350.0" maxWidth="550.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="F001" style="-fx-background-color: null; -fx-border-width: 1; -fx-border-color: #000;" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="txtItemId" maxHeight="350.0" maxWidth="550.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="F001" style="-fx-background-color: null; -fx-border-width: 2; -fx-border-color: #000;" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </TextField>
-                        <JFXButton fx:id="btnSearchItem" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchItemOnAction" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%);" text="S">
+                        <JFXButton fx:id="btnSearchItem" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchItemOnAction" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);" text="S">
                            <graphic>
                               <JFXBadge prefHeight="25.0" prefWidth="25.0">
                                  <children>
@@ -144,7 +144,7 @@
                                     <Insets left="35.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lblItemName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="250.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" style="-fx-border-color: black; -fx-border-width: 2;" text="Dafoodil" HBox.hgrow="ALWAYS">
+                              <Label fx:id="lblItemName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="250.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" style="-fx-border-color: black; -fx-border-width: 1;" text="Dafoodil" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Arial" size="16.0" />
                                  </font>
@@ -164,7 +164,7 @@
                            </font>
                         </Label>
                         <HBox alignment="CENTER_LEFT" />
-                        <TextField fx:id="txtAddToCartQty" maxHeight="-Infinity" maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="0" style="-fx-background-color: null; -fx-border-width: 1; -fx-border-color: #000;" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="txtAddToCartQty" maxHeight="-Infinity" maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="0" style="-fx-background-color: null; -fx-border-width: 2; -fx-border-color: #000;" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Arial" size="16.0" />
                            </font></TextField>
@@ -173,7 +173,7 @@
                               <Font name="Arial" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblItemPrice" maxHeight="-Infinity" maxWidth="139.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="139.0" style="-fx-border-color: black; -fx-border-width: 2;" text="0.00" HBox.hgrow="ALWAYS">
+                        <Label fx:id="lblItemPrice" maxHeight="-Infinity" maxWidth="139.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="139.0" style="-fx-border-color: black; -fx-border-width: 1;" text="0.00" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Arial" size="16.0" />
                            </font>
@@ -187,12 +187,12 @@
                               <Font name="Arial" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblQtyOnHand" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" style="-fx-border-color: black; -fx-border-width: 2;" text="0">
+                        <Label fx:id="lblQtyOnHand" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" style="-fx-border-color: black; -fx-border-width: 1;" text="0">
                            <font>
                               <Font name="Arial" size="16.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="btnAddToCart" buttonType="RAISED" maxHeight="-Infinity" maxWidth="250.0" minHeight="-Infinity" minWidth="160.0" onAction="#addToCartOnAction" prefHeight="34.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%);" text="Add to cart" textFill="WHITE" HBox.hgrow="ALWAYS">
+                        <JFXButton fx:id="btnAddToCart" buttonType="RAISED" maxHeight="-Infinity" maxWidth="250.0" minHeight="-Infinity" minWidth="160.0" onAction="#addToCartOnAction" prefHeight="34.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);" text="Add to cart" textFill="WHITE" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Arial Nova Bold" size="16.0" />
                            </font>
@@ -239,9 +239,9 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></JFXButton>
-                  <Label fx:id="lblTotalBill" maxWidth="200.0" minWidth="-Infinity" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <Label fx:id="lblTotalBill" alignment="CENTER" contentDisplay="CENTER" maxWidth="200.0" minWidth="-Infinity" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: A0D683; -fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="28.0" prefWidth="54.0" text="Paid :-" HBox.hgrow="ALWAYS">
@@ -251,9 +251,9 @@
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin></Label>
-                  <TextField fx:id="txtCash" maxWidth="200.0" minWidth="-Infinity" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="txtCash" alignment="CENTER" maxWidth="200.0" minWidth="-Infinity" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: A0D683; -fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></TextField>
                   <Label prefHeight="32.0" prefWidth="86.0" text="Balance :-" HBox.hgrow="ALWAYS">
                      <font>
@@ -263,30 +263,30 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="lblBalence" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <Label fx:id="lblBalence" alignment="CENTER" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: A0D683; -fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="704.0" spacing="30.0">
                <children>
-                  <JFXButton maxWidth="300.0" onAction="#ySaleReportOnAction" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%);" text="Yesterday Sales Report" textFill="#fff7f7" HBox.hgrow="ALWAYS">
+                  <JFXButton maxWidth="300.0" onAction="#ySaleReportOnAction" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);" text="Yesterday Sales Report" textFill="#fff7f7" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton maxHeight="-Infinity" maxWidth="300.0" onAction="#todaySaleOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%);" text="today sale report" textFill="#fffefe" HBox.hgrow="ALWAYS">
+                  <JFXButton maxHeight="-Infinity" maxWidth="300.0" onAction="#todaySaleOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);" text="today sale report" textFill="#fffefe" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnReset" buttonType="RAISED" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#resetOrderOnAction" prefHeight="35.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%);" text="Reset" textFill="WHITE" HBox.hgrow="ALWAYS">
+                  <JFXButton fx:id="btnReset" buttonType="RAISED" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#resetOrderOnAction" prefHeight="35.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);" text="Reset" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#placeOrderOnAction" prefHeight="34.0" prefWidth="183.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%);" text="Place Order" textFill="WHITE" HBox.hgrow="ALWAYS">
+                  <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#placeOrderOnAction" prefHeight="34.0" prefWidth="183.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);" text="Place Order" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

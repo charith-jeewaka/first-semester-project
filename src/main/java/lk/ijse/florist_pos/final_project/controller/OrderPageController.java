@@ -8,24 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.florist_pos.final_project.DBConnect.DBConnection;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+
 import lk.ijse.florist_pos.final_project.dto.OrderDetailsDto;
 import lk.ijse.florist_pos.final_project.dto.OrderItemDto;
 import lk.ijse.florist_pos.final_project.dto.Tm.CartTm;
 import lk.ijse.florist_pos.final_project.model.OrderModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
+import lk.ijse.florist_pos.final_project.util.CrudUtil;
 
-import java.math.BigDecimal;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class OrderPageController implements Initializable {
@@ -65,11 +59,15 @@ public class OrderPageController implements Initializable {
     public JFXRadioButton rbtnCard;
     public JFXRadioButton rbtnCash;
     public ToggleGroup paymentType = new ToggleGroup();
-
+    public ImageView imageView;
+    public AnchorPane ancOrder;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageView.fitWidthProperty().bind(ancOrder.widthProperty());
+        imageView.fitHeightProperty().bind(ancOrder.heightProperty());
+
         rbtnCard.setToggleGroup(paymentType);
         rbtnCash.setToggleGroup(paymentType);
         rbtnCash.setSelected(true);
@@ -347,5 +345,8 @@ public class OrderPageController implements Initializable {
         ReportGenerator reportGenerator = new ReportGenerator();
         reportGenerator.generateYesterdaySalesReport();
     }
+
+
+
 }
 

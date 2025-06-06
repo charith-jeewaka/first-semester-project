@@ -10,9 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -21,43 +18,47 @@
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="297.0" style="-fx-background-color: #dfe6e9;" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutX="16.0" layoutY="93.0" prefHeight="25.0" prefWidth="249.0" AnchorPane.leftAnchor="16.0">
+            <ImageView fitHeight="400.0" fitWidth="292.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../images/LOGINBACKGROUND.png" />
+               </image></ImageView>
+            <HBox layoutX="16.0" layoutY="111.0" prefHeight="25.0" prefWidth="249.0" AnchorPane.leftAnchor="16.0">
                <children>
-                  <Label prefHeight="20.0" prefWidth="89.0" text="USERNAME" HBox.hgrow="ALWAYS">
+                  <Label prefHeight="34.0" prefWidth="89.0" text="USERNAME" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="159.0" promptText="USERNAME" style="-fx-background-color: null; -fx-border-width: 0 0 1px 0; -fx-border-color: #1abc9c;" text="admin">
+                  <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="159.0" promptText="USERNAME" style="-fx-background-color: null; -fx-border-width: 1; -fx-border-color: black;" text="admin">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></TextField>
                </children>
             </HBox>
-            <Label layoutX="66.0" layoutY="21.0" text="SECURE LOGIN" textFill="#4d4141">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="18.0" prefHeight="45.0" prefWidth="257.0" text="SECURE LOGIN" textFill="#4d4141">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="System Bold" size="34.0" />
                </font>
             </Label>
-            <HBox layoutX="15.0" layoutY="162.0" prefHeight="28.0" prefWidth="250.0" AnchorPane.leftAnchor="15.0">
+            <HBox layoutX="15.0" layoutY="170.0" prefHeight="28.0" prefWidth="250.0" AnchorPane.leftAnchor="15.0">
                <children>
-                  <Label prefHeight="20.0" prefWidth="89.0" text="PASSWORD" HBox.hgrow="ALWAYS">
+                  <Label prefHeight="35.0" prefWidth="89.0" text="PASSWORD" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="159.0" promptText="PASSWORD" style="-fx-background-color: null; -fx-border-color: #1abc9c; -fx-border-width: 0 0 1px 0;" text="admin123">
+                  <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="159.0" promptText="PASSWORD" style="-fx-background-color: null; -fx-border-color: black; -fx-border-width: 1;" text="admin123">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></PasswordField>
                </children>
             </HBox>
-            <Button fx:id="btnCancel" layoutX="41.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #EA2#fab1a0027;" text="CANCEL" textFill="WHITE">
+            <Button fx:id="btnCancel" layoutX="63.0" layoutY="276.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: linear-gradient(to right, #134e5e, #71b280); -fx-cursor: hand; -fx-background-radius: 10;" text="CANCEL" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnLoggin" layoutX="41.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnLogginOnAction" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #74b9ff;" text="LOGIN" textFill="WHITE">
+            <Button fx:id="btnLoggin" layoutX="64.0" layoutY="234.0" mnemonicParsing="false" onAction="#btnLogginOnAction" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: linear-gradient(to right, #134e5e, #71b280);; -fx-cursor: hand; -fx-background-radius: 10;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -66,7 +67,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Button fx:id="btnForgetPassword" layoutX="94.0" layoutY="301.0" mnemonicParsing="false" onAction="#forgetPasswordOnAction" style="-fx-background-color: null;" text="Forget Password?" textFill="#0022ff">
+            <Button fx:id="btnForgetPassword" layoutX="94.0" layoutY="318.0" mnemonicParsing="false" onAction="#forgetPasswordOnAction" style="-fx-background-color: null; -fx-cursor: hand; -fx-border-width: 0 0 1px 0; -fx-border-color: black;" text="Forget Password?">
                <font>
                   <Font size="10.0" />
                </font>
@@ -75,7 +76,7 @@
       </AnchorPane>
    </right>
    <left>
-      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #dfe4ea;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(to right, #134e5e, #71b280);" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -87,51 +88,15 @@
                   <Image url="@../images/imgSmall.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="400.0" fitWidth="228.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../images/flower.jpg" />
-               </image></ImageView>
-            <Label layoutX="40.0" layoutY="55.0" prefHeight="53.0" prefWidth="147.0" text="FLORIST">
+            <Label layoutX="28.0" layoutY="56.0" prefHeight="53.0" prefWidth="171.0" text="CREATIVE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
-               <textFill>
-                  <RadialGradient centerX="0.5" centerY="0.542654028436019" radius="0.5">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1522904485464096" green="0.5736273527145386" blue="0.6578947305679321" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </textFill>
             </Label>
-            <Label layoutX="77.0" layoutY="108.0" prefHeight="53.0" prefWidth="74.0" text="POS">
+            <Label layoutX="54.0" layoutY="108.0" prefHeight="53.0" prefWidth="121.0" text="FLORA" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
-               <textFill>
-                  <RadialGradient centerX="0.5" centerY="0.542654028436019" radius="0.5">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1623416244983673" green="0.4451906681060791" blue="0.5394737124443054" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color green="0.28421053290367126" blue="0.31578946113586426" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </textFill>
             </Label>
             <Text fill="WHITE" layoutX="35.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLEASE LOGIN TO CONTINUE" textAlignment="CENTER" wrappingWidth="157.142578125">
                <font>

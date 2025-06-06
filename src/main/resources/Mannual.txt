@@ -1,0 +1,91 @@
+==============================================================================  1. INTRODUCTION  ====================================================================
+
+
+Creative Flora is a point-of-sale (POS) system developed by IJSC – Institute of Software Engineering, designed specifically for managing the operations of a florist business. This software helps streamline daily tasks by tracking sales, placing and managing customer orders, managing plant and flower inventory, and generating detailed sales and activity reports.
+
+The system aims to improve efficiency, reduce manual errors, and provide a smoother experience for both the staff and customers. With user-friendly interfaces and essential features built into one application, Creative Flora is the ideal solution for modernizing florist shop operations.
+
+
+===========================================================================   2. System Requirements   ==============================================================
+
+
+Creative Flora is a lightweight Java-based desktop application built with JavaFX and MySQL. It can run smoothly on systems with low specifications. Below are the minimum requirements:
+
+- Operating System: Windows 7 or higher
+- RAM: 2 GB or more
+- Java Runtime Environment (JRE) 8 or above
+- MySQL Server installed
+- Basic screen resolution: 1024x768 or higher
+
+This software is user-friendly and does not require advanced technical knowledge. Any user with basic computer skills can operate the system comfortably.
+
+
+
+ ================================================================================    3. Logging In    ================================================================
+
+
+To access Creative Flora, users must enter a valid username and password. The system comes with a built-in default login for first-time access. After logging in, users can change the password and add new users through the dashboard by clicking the plus (+) icon.
+
+This ensures secure access and allows for personalized user accounts.
+
+
+================================================================================   4. Main Features   ================================================================
+
+
+Creative Flora includes a main dashboard with a left-side navigation panel. From this panel, users can easily access all major functions of the software. Below are the key features:
+
+
+
+  *****Dashboard Overview*****
+
+  View a summary of business stats such as yesterday’s sales, today’s sales, total items in inventory, and total employees. It also displays the logged-in user and current time.
+
+
+
+- *****Customer Management*****
+  Add, update, or delete customer records. Send emails directly to customers from this page.
+
+
+
+- *****Plant Inventory*****
+  Create, update, or remove plants from your inventory. Manage plant details such as type, height, and price.
+
+
+
+- *****Flower Management******
+  Similar to the plant page, manage all flower items, including adding, editing, and deleting flower data.
+
+
+
+- *****Order Handling******
+  Place and manage customer orders. If the customer is a loyalty member, enter their ID to auto-fill details. Add items by ID, choose payment method (cash or card), and complete the order.
+
+
+
+- ******Item Waste Tracking****
+  Record and manage waste items (damaged or expired flowers and plants) to maintain accurate stock data.
+
+
+
+- *****Email Module******
+  Send emails to suppliers using ready-to-use templates such as supply requests and thank-you messages. Emails sent are automatically saved for future reference.
+
+
+
+- *****Staff Management*****
+  Add, update, or delete staff accounts. Manage employee details similar to the customer module.
+
+
+
+- *****Data Backup*****
+  Important actions such as emails and orders are automatically backed up and stored within the system for tracking and future use.
+
+
+
+- ******Report Generation*****
+  Generate professional reports such as daily sales, item summaries, and order histories using built-in report templates.
+
+
+
+- ******Logout******
+  Securely log out from the system using the logout button at the bottom of the navigation panel.

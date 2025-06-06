@@ -4,10 +4,12 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,6 +22,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 import java.awt.*;
 import java.io.File;
@@ -28,11 +32,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -77,19 +78,33 @@ public class DashboardController implements Initializable {
         Image image = imgDashboardUser1.getImage();
         imgDashboardUser2.setImage(image);
 
+        Platform.runLater(() -> {
+            Notifications.create()
+                    .title("Welcome")
+                    .text("System started successfully. get full screen for best experience")
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.TOP_RIGHT)
+                    .showInformation();
+        });
+        Platform.runLater(() -> {
+            Notifications.create()
+                    .title("Manual")
+                    .text("You Can Read The Manual From The '?' Icon in Dashboard")
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.TOP_RIGHT)
+                    .showInformation();
+        });
     }
 
     public void logoutonAction(ActionEvent actionEvent) throws IOException {
-        // Load the login screen
+
         Parent root = FXMLLoader.load(getClass().getResource("/view/LoginScreen.fxml"));
 
-        // Create a new Stage (window)
         Stage newStage = new Stage();
         newStage.initStyle(StageStyle.UNDECORATED); // Removes the title bar
         newStage.setScene(new Scene(root));
         newStage.show();
 
-        // Close the current stage
         Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
     }
@@ -158,7 +173,7 @@ public class DashboardController implements Initializable {
     public void openManuualOnAction(ActionEvent actionEvent) {
         try {
             InputStream inputStream = getClass().getResourceAsStream("/Mannual.txt");
-            File tempFile = File.createTempFile("manual", ".txt");
+            File tempFile = File.createTempFile("Mannual", ".txt");
             Files.copy(inputStream, tempFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
             Desktop.getDesktop().open(tempFile);
         } catch (IOException e) {

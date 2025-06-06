@@ -125,7 +125,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="btnSave" layoutX="262.0" layoutY="454.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveUserOnAction" prefHeight="42.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="261.0">
+      <Button fx:id="btnSave" layoutX="513.0" layoutY="454.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveUserOnAction" prefHeight="42.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -141,10 +141,35 @@
             </JFXBadge>
          </graphic>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="26.0" prefHeight="56.0" prefWidth="470.0" text="Welcome To The Company" AnchorPane.topAnchor="26.0">
+      <HBox alignment="CENTER" layoutX="152.0" layoutY="26.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="26.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="470.0" text="Welcome To The Company" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Arial Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TextField fx:id="txtVerificationCode" layoutX="312.0" layoutY="148.0" prefHeight="37.0" prefWidth="149.0" promptText="Verification" style="-fx-background-color: null; -fx-border-color: black;" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="148.0">
          <font>
-            <Font name="Arial Bold" size="36.0" />
+            <Font size="18.0" />
          </font>
-      </Label>
+      </TextField>
+      <Button fx:id="btnSendCode" layoutX="10.0" layoutY="454.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnSendCodeOnAction" prefHeight="42.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(from 100.0% 43.6019% to 100.0% 58.7678%, #1d700ae9 0.0%, #000000 100.0%); -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <JFXBadge prefHeight="32.0" prefWidth="32.0">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/savew.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </JFXBadge>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

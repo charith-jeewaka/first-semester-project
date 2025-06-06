@@ -32,9 +32,6 @@
                      </VBox.margin>
                      <children>
                         <ImageView fx:id="imgDashboardUser1" fitHeight="152.0" fitWidth="164.0" layoutX="12.0" onMouseClicked="#goUserOnMouseClicked" pickOnBounds="true" style="-fx-cursor: hand;">
-                           <effect>
-                              <Glow />
-                           </effect>
                            <image>
                               <Image url="@../images/user3.png" />
                            </image>
@@ -50,19 +47,25 @@
                      <font>
                         <Font name="Arial Bold" size="30.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <Label fx:id="lblCurrentUser" onMouseClicked="#goUserOnMouseClicked" style="-fx-cursor: hand;" text="CHARITH" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font></Label>
-                  <Line endX="38.5" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
-
-                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
+                  <Line endX="38.5" startX="-100.0" stroke="WHITE" strokeWidth="2.0">
                      <VBox.margin>
                         <Insets top="5.0" />
+                     </VBox.margin></Line>
+
+                        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="178.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
                      </VBox.margin>
                      <children>
-                        <JFXButton fx:id="btnHome" buttonType="RAISED" mnemonicParsing="false" onAction="#homePageOnAction" prefHeight="25.0" prefWidth="201.0" style="-fx-border-radius: 20; -fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="HOME">
+                        <JFXButton fx:id="btnHome" buttonType="RAISED" mnemonicParsing="false" onAction="#homePageOnAction" prefHeight="39.0" prefWidth="214.0" style="-fx-border-radius: 20; -fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="HOME">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -73,7 +76,7 @@
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                            <ripplerFill>
-                              <LinearGradient endX="1.0" endY="1.0">
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.2938388625592417">
                                  <stops>
                                     <Stop>
                                        <color>
@@ -123,8 +126,32 @@
                                  </children>
                               </JFXBadge>
                            </graphic>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.2938388625592417">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.594426155090332" green="0.8684210777282715" blue="0.30153509974479675" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
                         </JFXButton>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
@@ -143,8 +170,27 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.5687203791469194">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.7310672402381897" green="0.9605262875556946" blue="0.3868786692619324" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.02850877121090889" green="0.4736842215061188" blue="0.347551167011261" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
                         </JFXButton>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
@@ -163,8 +209,32 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="0.4312796208530806" startY="0.17061611374407584">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.594426155090332" green="0.8684210777282715" blue="0.30153509974479675" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
                         </JFXButton>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
@@ -183,8 +253,27 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.7914691943127962">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.7310672402381897" green="0.9605262875556946" blue="0.3868786692619324" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.02850877121090889" green="0.4736842215061188" blue="0.347551167011261" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
                         </JFXButton>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
@@ -203,8 +292,32 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="0.4312796208530806" startX="0.1184834123222749" startY="0.17061611374407584">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.6856452226638794" green="0.8600000143051147" blue="0.3009999990463257" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
                         </JFXButton>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
 
                         <!-- Reports (repeated) -->
@@ -224,8 +337,27 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.909952606635071" startY="0.26066350710900477">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.7310672402381897" green="0.9605262875556946" blue="0.3868786692619324" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.03290000185370445" green="0.4699999988079071" blue="0.12136070430278778" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
                         </JFXButton>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
@@ -244,34 +376,32 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="0.4312796208530806" startX="0.1279620853080569" startY="0.17061611374407584">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="0.3524000942707062" green="0.8552631735801697" blue="0.4864969253540039" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.6856452226638794" green="0.8600000143051147" blue="0.3009999990463257" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
                         </JFXButton>
                      </children>
-                  </HBox>
-
-                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-                     <children>
-                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="REPORTS">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" top="10.0" />
-                           </HBox.margin>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-
-                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
-                     <children>
-                        <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to bottom, #a5d6a7, #66bb6a); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 2;" text="REPORTS">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" top="10.0" />
-                           </HBox.margin>
-                        </JFXButton>
-                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
 
                         <HBox alignment="CENTER" prefHeight="31.0" prefWidth="161.0">
@@ -292,6 +422,9 @@
                            </graphic>
                         </JFXButton>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
                <effect>
@@ -300,14 +433,6 @@
             </VBox>
          </content>
       </ScrollPane>
-
-      <AnchorPane fx:id="ancDashboardContent" layoutX="188.0" layoutY="68.0" prefHeight="510.0" prefWidth="773.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
-         <effect>
-            <ColorAdjust />
-         </effect>
-         <children>
-            <StackPane layoutX="129.0" layoutY="83.0" />
-         </children></AnchorPane>
       <HBox layoutX="188.0" prefHeight="68.0" prefWidth="773.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="68.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to right, #004d40 0%, #00332c 50%, #004d40 100%);;" HBox.hgrow="ALWAYS">
@@ -317,7 +442,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="219.0" text="FLORIST POS" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="538.0" text="WELCOME TO CREATIVE FLORA DASHBOARD" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="235.0">
                      <font>
                         <Font name="Ebrima" size="36.0" />
                      </font>
@@ -353,6 +478,14 @@
             </AnchorPane>
          </children>
       </HBox>
+
+      <AnchorPane fx:id="ancDashboardContent" layoutX="202.0" layoutY="68.0" prefHeight="510.0" prefWidth="759.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+         <effect>
+            <ColorAdjust />
+         </effect>
+         <children>
+            <StackPane layoutX="129.0" layoutY="83.0" />
+         </children></AnchorPane>
    </children>
    <effect>
       <Glow />
